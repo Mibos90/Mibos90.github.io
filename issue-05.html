@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 90s Indian Kid | Issue #05: Nokia Snake & 8-Bit Gadgets</title>
+  <style>
+    :root {
+      --paper: #faf6ee;
+      --card-bg: #ffffff;
+      --retro-orange: #d44d22;
+      --retro-teal: #1d707f;
+      --border-soft: #e3d9cc;
+      --text: #2c2523;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Trebuchet MS", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--paper);
+      margin: 0;
+      padding: 16px;
+    }
+    .issue-nav {
+      max-width: 720px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #f0ebe1;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+    }
+    .issue-nav a { color: var(--retro-teal); text-decoration: none; }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 28px 22px;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+    }
+    header {
+      text-align: center;
+      border-bottom: 2px dashed var(--border-soft);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    header h1 { margin: 0 0 6px 0; color: var(--retro-orange); font-size: 2.2rem; }
+    .badge {
+      display: inline-block;
+      background: var(--retro-teal);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    /* NOKIA 3310 PHONE FRAME */
+    .nokia-frame {
+      background: #1e3799;
+      border-radius: 28px;
+      padding: 20px 16px;
+      max-width: 320px;
+      margin: 25px auto;
+      border: 4px solid #0c2461;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .nokia-screen {
+      background: #95afc0;
+      border: 4px solid #535c68;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+    }
+    canvas {
+      background: #8395a7;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #2f3542;
+    }
+    .nokia-keypad {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .key-btn {
+      background: #dff9fb;
+      border: 2px solid #535c68;
+      border-radius: 6px;
+      padding: 8px 0;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .key-btn:active { transform: scale(0.94); }
+    .comic-section {
+      background: #fffdf9;
+      border: 2px solid #2d2621;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 28px 0;
+      box-shadow: 4px 4px 0 #2d2621;
+    }
+    .comic-header {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--retro-orange);
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #d4c5b1;
+      padding-bottom: 6px;
+    }
+    .comic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .comic-panel {
+      border: 2px solid #333;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .panel-tag { font-size: 0.7rem; font-weight: 800; background: #eee; padding: 2px 6px; border-radius: 4px; }
+    .comic-emoji { font-size: 2rem; margin: 6px 0; }
+    .comic-caption { font-size: 0.85rem; line-height: 1.35; font-weight: 600; }
+    section { margin-bottom: 28px; }
+    h2 { color: var(--retro-teal); font-size: 1.3rem; margin-bottom: 12px; }
+    .quiz-box { background: #fdf8ed; border: 2px solid #e5b95a; border-radius: 8px; padding: 18px; }
+    .quiz-options { display: grid; gap: 8px; margin-top: 12px; }
+    .quiz-btn { background: #fff; border: 1px solid #d4c5b1; padding: 10px 14px; border-radius: 6px; text-align: left; cursor: pointer; }
+    .quiz-feedback { font-weight: bold; margin-top: 10px; min-height: 22px; }
+    .letter-card { background: #f1f8f9; border-left: 5px solid var(--retro-teal); padding: 18px; border-radius: 0 8px 8px 0; font-style: italic; }
+    footer { text-align: center; font-size: 0.85rem; color: #887e74; border-top: 1px solid var(--border-soft); padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <div class="issue-nav">
+    <a href="issue-04.html">⏮ Issue #04: Summers</a>
+    <span>Issue #05</span>
+    <a href="index.html">Issue #02: Paper Games ⏭</a>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>The 90s Indian Kid</h1>
+      <p>A weekly rewind into 9999-in-1 cartridges, water ring games, and indestructible Nokias.</p>
+      <span class="badge">Issue #05 • 8-Bit Nostalgia</span>
+    </header>
+
+    <div class="nokia-frame">
+      <div style="color:#dff9fb; font-family:monospace; font-size:0.75rem; margin-bottom:6px;">NOKIA 3310</div>
+      <div class="nokia-screen">
+        <canvas id="snakeCanvas" width="200" height="150"></canvas>
+        <div style="font-family:monospace; font-size:0.8rem; margin-top:4px;">SCORE: <span id="snakeScore">0</span></div>
+      </div>
+      <div class="nokia-keypad">
+        <div></div>
+        <button class="key-btn" onclick="changeDir('UP')">▲ 2</button>
+        <div></div>
+        <button class="key-btn" onclick="changeDir('LEFT')">◀ 4</button>
+        <button class="key-btn" style="background:#ff7675; color:#fff;" onclick="startSnake()">▶ START</button>
+        <button class="key-btn" onclick="changeDir('RIGHT')">▶ 6</button>
+        <div></div>
+        <button class="key-btn" onclick="changeDir('DOWN')">▼ 8</button>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="comic-section">
+      <div class="comic-header">
+        <span>Sunday Comic: Handheld Gaming</span>
+        <span>Ep. 05</span>
+      </div>
+      <div class="comic-grid">
+        <div class="comic-panel">
+          <span class="panel-tag">Water Toy</span>
+          <div class="comic-emoji">💧 🔘 🎯</div>
+          <div class="comic-caption">Pumping the yellow rubber button frantically to land 5 plastic rings onto two underwater posts.</div>
+        </div>
+        <div class="comic-panel">
+          <span class="panel-tag">TV Video Game</span>
+          <div class="comic-emoji">📼 💨 📺</div>
+          <div class="comic-caption">Blowing air aggressively into the yellow Mario cassette when the screen froze on Level 1-2.</div>
+        </div>
+        <div class="comic-panel">
+          <span class="panel-tag">Brick Game</span>
+          <div class="comic-emoji">📟 🧱 🔊</div>
+          <div class="comic-caption">The loud mechanical beep of the gray Brick Game ringing across the entire school bus.</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>🎮 When 9999-in-1 Only Meant 4 Games</h2>
+      <p>
+        Long before PlayStation 5 and ray tracing, our definition of portable computing was a gray plastic brick powered by two AA batteries that made high-pitched 8-bit screams.
+      </p>
+      <p>
+        The box proudly promised <strong>"9,999 GAMES IN 1"</strong>, but as every 90s kid discovered within 5 minutes, it was really just Tetris and Snake repeated at 2,000 different speeds. Yet, we played it until our thumbs were bruised.
+      </p>
+    </section>
+
+    <section>
+      <h2>🕹️ Gadgets Quiz</h2>
+      <div class="quiz-box">
+        <p><strong>Clue:</strong> What was the famous cheat code action performed when an 8-bit TV video game cassette showed distorted pixels?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkGadgetQuiz(true, this)">A) Blow air into the bottom cartridge slit</button>
+          <button class="quiz-btn" onclick="checkGadgetQuiz(false, this)">B) Shake the TV antenna wire</button>
+          <button class="quiz-btn" onclick="checkGadgetQuiz(false, this)">C) Clean it with water</button>
+          <button class="quiz-btn" onclick="checkGadgetQuiz(false, this)">D) Put it in the freezer</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>✉️ Letter to the High Score Champion</h2>
+      <div class="letter-card">
+        <p>
+          "Dear kid beating your brother's Snake score on Dad's monochrome mobile:
+        </p>
+        <p>
+          You will one day hold phones that can stream 4K movies across satellites. But you will never experience the pure tension of a 12-block-long pixel snake turning a 90-degree corner with 1% battery left. Keep playing."
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built with pure 90s nostalgia • Issue #05 • Dedicated to 8-bit legends.</p>
+    </footer>
+  </div>
+
+  <script>
+    // --- MINI NOKIA SNAKE GAME ---
+    const canvas = document.getElementById('snakeCanvas');
+    const ctx = canvas.getContext('2d');
+    const grid = 10;
+    let snake = [{x: 50, y: 50}];
+    let food = {x: 100, y: 70};
+    let dx = grid, dy = 0;
+    let score = 0;
+    let gameLoop = null;
+
+    function startSnake() {
+      snake = [{x: 50, y: 50}, {x: 40, y: 50}];
+      dx = grid; dy = 0;
+      score = 0;
+      document.getElementById('snakeScore').innerText = score;
+      clearInterval(gameLoop);
+      spawnFood();
+      gameLoop = setInterval(updateSnake, 120);
+    }
+
+    function spawnFood() {
+      food.x = Math.floor(Math.random() * (canvas.width / grid)) * grid;
+      food.y = Math.floor(Math.random() * (canvas.height / grid)) * grid;
+    }
+
+    function changeDir(dir) {
+      if (dir === 'UP' && dy === 0) { dx = 0; dy = -grid; }
+      if (dir === 'DOWN' && dy === 0) { dx = 0; dy = grid; }
+      if (dir === 'LEFT' && dx === 0) { dx = -grid; dy = 0; }
+      if (dir === 'RIGHT' && dx === 0) { dx = grid; dy = 0; }
+    }
+
+    function updateSnake() {
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+
+      // Wall wrapping
+      if (head.x < 0) head.x = canvas.width - grid;
+      if (head.x >= canvas.width) head.x = 0;
+      if (head.y < 0) head.y = canvas.height - grid;
+      if (head.y >= canvas.height) head.y = 0;
+
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        document.getElementById('snakeScore').innerText = score;
+        spawnFood();
+      } else {
+        snake.pop();
+      }
+
+      // Draw
+      ctx.fillStyle = "#8395a7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#2f3542";
+      snake.forEach(s => ctx.fillRect(s.x, s.y, grid - 1, grid - 1));
+
+      ctx.fillStyle = "#000";
+      ctx.fillRect(food.x, food.y, grid - 1, grid - 1);
+    }
+
+    function checkGadgetQuiz(isCorrect, btn) {
+      const fb = document.getElementById('quizFeedback');
+      document.querySelectorAll('.quiz-btn').forEach(b => { b.style.background = "#fff"; });
+      if (isCorrect) {
+        btn.style.background = "#e8f5e9";
+        fb.style.color = "#2e7d32";
+        fb.innerText = "✨ The universal Indian fix: Blow into the cassette with full force!";
+      } else {
+        btn.style.background = "#ffebee";
+        fb.style.color = "#c62828";
+        fb.innerText = "Think of what we blew air into before slotting it back in!";
+      }
+    }
+  </script>
+</body>
+</html>
