@@ -94,7 +94,7 @@
       text-transform: uppercase;
     }
 
-    /* --- CRT TV WITH BROADCAST --- */
+    /* --- CRT TV --- */
     .tv-wrapper {
       margin: 25px auto 35px auto;
       max-width: 480px;
@@ -158,10 +158,7 @@
       pointer-events: none;
     }
 
-    .crt-screen .dd-logo {
-      font-size: 2.4rem;
-    }
-
+    .crt-screen .dd-logo { font-size: 2.4rem; }
     .crt-screen .on-air {
       font-family: monospace;
       font-size: 0.85rem;
@@ -219,7 +216,7 @@
       box-shadow: 0 3px 0 #8f2f11;
     }
 
-    /* --- THE 15-SEC CASSETTE REWIND MINI GAME --- */
+    /* --- PENCIL REWIND GAME --- */
     .rewind-game-box {
       background: #242220;
       border: 3px solid #3c3833;
@@ -281,14 +278,8 @@
       transition: transform 0.08s linear;
     }
 
-    .spool-gear:active {
-      transform: scale(0.95);
-    }
-
-    .pencil-icon {
-      font-size: 1.4rem;
-      pointer-events: none;
-    }
+    .spool-gear:active { transform: scale(0.95); }
+    .pencil-icon { font-size: 1.4rem; pointer-events: none; }
 
     .tangled-tape-bar {
       height: 10px;
@@ -306,9 +297,7 @@
       transition: width 0.1s ease;
     }
 
-    .game-actions {
-      margin-top: 14px;
-    }
+    .game-actions { margin-top: 14px; }
 
     .game-btn {
       background: var(--retro-teal);
@@ -326,6 +315,105 @@
       font-size: 1rem;
       font-weight: bold;
       min-height: 28px;
+    }
+
+    /* --- IN-BROWSER CASSETTE AUDIO RECORDER --- */
+    .recorder-deck {
+      background: #1f2022;
+      border: 3px solid #3c3e42;
+      border-radius: 12px;
+      padding: 22px 18px;
+      margin: 35px 0;
+      color: #f5f5f5;
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .rec-cassette {
+      background: #faf8f5;
+      color: #222;
+      border-radius: 8px;
+      padding: 14px;
+      max-width: 380px;
+      margin: 0 auto 16px auto;
+      border-top: 5px solid #d63031;
+      border-bottom: 3px solid #ccc;
+    }
+
+    .rec-label {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .rec-reels {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 10px 0;
+    }
+
+    .rec-reel {
+      width: 36px;
+      height: 36px;
+      background: #333;
+      border-radius: 50%;
+      border: 3px dashed #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rec-reel-hole {
+      width: 10px;
+      height: 10px;
+      background: #faf8f5;
+      border-radius: 50%;
+    }
+
+    .reel-spinning {
+      animation: spinReels 1.5s linear infinite;
+    }
+
+    @keyframes spinReels {
+      100% { transform: rotate(360deg); }
+    }
+
+    .rec-status {
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #e67e22;
+      min-height: 22px;
+      margin-bottom: 14px;
+    }
+
+    .deck-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .deck-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.1s;
+    }
+
+    .btn-record { background: #d63031; color: #fff; }
+    .btn-stop { background: #636e72; color: #fff; }
+    .btn-play { background: #00b894; color: #fff; }
+    .btn-download { background: #0984e3; color: #fff; text-decoration: none; display: inline-flex; align-items: center; }
+
+    .deck-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
     }
 
     /* Comic Section */
@@ -463,11 +551,11 @@
       </button>
     </div>
 
-    <!-- MINI GAME: 15-SECOND PENCIL REWIND CHALLENGE (WITH MECHANICAL CLICK SOUND) -->
+    <!-- MINI GAME: 15-SECOND PENCIL REWIND CHALLENGE -->
     <div class="rewind-game-box">
       <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">✏️ The Natraj Pencil Rewind Challenge</h3>
       <p style="font-size: 0.85rem; color: #bbb; margin: 0 0 16px 0;">
-        The tape unspooled into a mess! Hit Start, then rapidly tap the pencil spool to rewind the ribbon in under 15 seconds!
+        The tape unspooled! Hit Start, then rapidly tap the pencil spool to rewind the ribbon in under 15 seconds!
       </p>
 
       <div class="game-hud">
@@ -495,6 +583,34 @@
         <button class="game-btn" id="startBtn" onclick="startRewindGame()">▶ Start 15s Challenge</button>
       </div>
       <div class="game-result" id="gameResult"></div>
+    </div>
+
+    <!-- IN-BROWSER CASSETTE VOICE RECORDER -->
+    <div class="recorder-deck">
+      <h3 style="margin: 0 0 6px 0; color: #fab1a0;">🎙️ The Middle-Class Cassette Voice Memo</h3>
+      <p style="font-size: 0.85rem; color: #b2bec3; margin: 0 0 16px 0;">
+        Record your own 90s memory directly onto this tape right now:
+      </p>
+
+      <div class="rec-cassette">
+        <div class="rec-label">REC TAPE • SIDE B [VOICE MEMO]</div>
+        <div class="rec-reels">
+          <div class="rec-reel" id="recReelL"><div class="rec-reel-hole"></div></div>
+          <div class="rec-reel" id="recReelR"><div class="rec-reel-hole"></div></div>
+        </div>
+        <div style="font-size: 0.75rem; color: #777;">Magnetic ribbon ready</div>
+      </div>
+
+      <div class="rec-status" id="recStatus">Standby. Press [Record] to begin speaking.</div>
+
+      <div class="deck-buttons">
+        <button class="deck-btn btn-record" id="btnRecord" onclick="startRecording()">🔴 Record</button>
+        <button class="deck-btn btn-stop" id="btnStop" onclick="stopRecording()" disabled>⏹ Stop</button>
+        <button class="deck-btn btn-play" id="btnPlay" onclick="playRecording()" disabled>▶ Play Tape</button>
+        <a class="deck-btn btn-download" id="btnDownload" style="display: none;" download="my-90s-memory.webm">💾 Save Tape</a>
+      </div>
+
+      <audio id="playbackAudio" style="display: none;"></audio>
     </div>
 
     <!-- Cartoon Corner -->
@@ -597,27 +713,19 @@
       }
     }
 
-    // --- Mechanical Spool Ratchet Sound Synthesizer (Web Audio API) ---
+    // --- Mechanical Spool Click Synthesizer ---
     let spoolAudioCtx = null;
-
     function playSpoolClick() {
-      if (!spoolAudioCtx) {
-        spoolAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      
+      if (!spoolAudioCtx) spoolAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = spoolAudioCtx.createOscillator();
       const gain = spoolAudioCtx.createGain();
-
       osc.type = 'square';
       osc.frequency.setValueAtTime(320, spoolAudioCtx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(40, spoolAudioCtx.currentTime + 0.03);
-
       gain.gain.setValueAtTime(0.12, spoolAudioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, spoolAudioCtx.currentTime + 0.03);
-
       osc.connect(gain);
       gain.connect(spoolAudioCtx.destination);
-
       osc.start();
       osc.stop(spoolAudioCtx.currentTime + 0.03);
     }
@@ -626,7 +734,7 @@
     let gameActive = false;
     let rewoundTicks = 0;
     const totalTicksNeeded = 30;
-    let timeLeft = 150; // 15.0 seconds
+    let timeLeft = 150;
     let timerInterval = null;
     let rotationDeg = 0;
 
@@ -664,9 +772,7 @@
         return;
       }
 
-      // Plays the mechanical ratchet click on every tap
       playSpoolClick();
-
       rewoundTicks++;
       rotationDeg += 45;
       document.getElementById('activeSpool').style.transform = `rotate(${rotationDeg}deg)`;
@@ -682,6 +788,86 @@
         document.getElementById('gameResult').innerHTML = 
           `<span style='color: #2ecc71;'>🏆 Legend! Rewound in ${timeTaken}s! You've got pure 90s pencil muscle memory!</span>`;
       }
+    }
+
+    // --- IN-BROWSER CASSETTE AUDIO RECORDER ---
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recTimerInterval = null;
+    let recSeconds = 0;
+
+    async function startRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        recordedChunks = [];
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+          const audioUrl = URL.createObjectURL(blob);
+          const audioEl = document.getElementById('playbackAudio');
+          audioEl.src = audioUrl;
+
+          const downloadBtn = document.getElementById('btnDownload');
+          downloadBtn.href = audioUrl;
+          downloadBtn.style.display = 'inline-flex';
+
+          document.getElementById('btnPlay').disabled = false;
+          document.getElementById('recStatus').innerText = `✅ Tape captured! (${recSeconds}s). Ready for playback.`;
+          stopReelSpin();
+        };
+
+        mediaRecorder.start();
+        recSeconds = 0;
+        document.getElementById('btnRecord').disabled = true;
+        document.getElementById('btnStop').disabled = false;
+        document.getElementById('btnPlay').disabled = true;
+        startReelSpin();
+
+        recTimerInterval = setInterval(() => {
+          recSeconds++;
+          document.getElementById('recStatus').innerText = `🔴 RECORDING TO CASSETTE: 00:${recSeconds < 10 ? '0' : ''}${recSeconds}`;
+        }, 1000);
+
+      } catch (err) {
+        alert("Microphone access was denied or is not supported by your browser!");
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        clearInterval(recTimerInterval);
+        document.getElementById('btnRecord').disabled = false;
+        document.getElementById('btnStop').disabled = true;
+      }
+    }
+
+    function playRecording() {
+      const audioEl = document.getElementById('playbackAudio');
+      if (audioEl.src) {
+        startReelSpin();
+        document.getElementById('recStatus').innerText = "▶ Playing back your voice memo...";
+        audioEl.play();
+        audioEl.onended = () => {
+          stopReelSpin();
+          document.getElementById('recStatus').innerText = "⏹ Playback finished.";
+        };
+      }
+    }
+
+    function startReelSpin() {
+      document.getElementById('recReelL').classList.add('reel-spinning');
+      document.getElementById('recReelR').classList.add('reel-spinning');
+    }
+
+    function stopReelSpin() {
+      document.getElementById('recReelL').classList.remove('reel-spinning');
+      document.getElementById('recReelR').classList.remove('reel-spinning');
     }
 
     // --- Quiz Logic ---
