@@ -23,7 +23,6 @@
       padding: 16px;
     }
 
-    /* Top Issue Switcher */
     .issue-nav {
       max-width: 720px;
       margin: 0 auto 16px auto;
@@ -47,7 +46,6 @@
       text-decoration: underline;
     }
 
-    /* Doordarshan Test Pattern Bar */
     .color-bar {
       height: 7px;
       background: linear-gradient(90deg, #fff 0% 14%, #ff0 14% 28%, #0ff 28% 42%, #0f0 42% 56%, #f0f 56% 70%, #f00 70% 85%, #00f 85% 100%);
@@ -96,7 +94,7 @@
       text-transform: uppercase;
     }
 
-    /* --- CRT TV ILLUSTRATION WITH DD SOUND INTEGRATION --- */
+    /* --- CRT TV WITH BROADCAST --- */
     .tv-wrapper {
       margin: 25px auto 35px auto;
       max-width: 480px;
@@ -146,7 +144,6 @@
       transition: background 0.4s ease, box-shadow 0.4s ease;
     }
 
-    /* Phosphor screen glow when playing */
     .crt-screen.playing {
       background: #0d2818;
       box-shadow: inset 0 0 30px rgba(121, 247, 121, 0.4), 0 0 15px rgba(121, 247, 121, 0.2);
@@ -163,7 +160,6 @@
 
     .crt-screen .dd-logo {
       font-size: 2.4rem;
-      animation: pulse 2.5s infinite alternate;
     }
 
     .crt-screen .on-air {
@@ -172,11 +168,6 @@
       letter-spacing: 2px;
       margin-top: 6px;
       color: #92e6a7;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.7; transform: scale(0.97); }
-      100% { opacity: 1; transform: scale(1.03); }
     }
 
     .crt-controls {
@@ -226,15 +217,119 @@
       cursor: pointer;
       font-size: 0.95rem;
       box-shadow: 0 3px 0 #8f2f11;
-      transition: all 0.1s ease;
     }
 
-    .tv-broadcast-btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 #8f2f11;
+    /* --- THE 15-SEC CASSETTE REWIND MINI GAME --- */
+    .rewind-game-box {
+      background: #242220;
+      border: 3px solid #3c3833;
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin: 35px 0;
+      color: #fff;
+      text-align: center;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.8), 0 6px 15px rgba(0,0,0,0.15);
     }
 
-    /* Comic Strip */
+    .game-hud {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #181716;
+      border: 1px solid #444;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .timer-text { color: #f39c12; font-weight: bold; }
+    .spool-text { color: #2ecc71; font-weight: bold; }
+
+    .tape-visual {
+      background: #ece3d4;
+      color: #222;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 0 auto 16px auto;
+      max-width: 420px;
+      border-top: 6px solid var(--retro-orange);
+      position: relative;
+    }
+
+    .tape-reels-row {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .spool-gear {
+      width: 58px;
+      height: 58px;
+      background: #2b2b2b;
+      border: 5px dashed #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.08s linear;
+    }
+
+    .spool-gear:active {
+      transform: scale(0.95);
+    }
+
+    .pencil-icon {
+      font-size: 1.4rem;
+      pointer-events: none;
+    }
+
+    /* Tangled Tape Indicator Bar */
+    .tangled-tape-bar {
+      height: 10px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 12px auto 0 auto;
+      max-width: 320px;
+    }
+
+    .tape-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #d35400, #27ae60);
+      transition: width 0.1s ease;
+    }
+
+    .game-actions {
+      margin-top: 14px;
+    }
+
+    .game-btn {
+      background: var(--retro-teal);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .game-result {
+      margin-top: 14px;
+      font-size: 1rem;
+      font-weight: bold;
+      min-height: 28px;
+    }
+
+    /* Sections, Comic, Quiz */
     .comic-section {
       background: #fffdf9;
       border: 2px solid #2d2621;
@@ -284,19 +379,9 @@
       align-self: flex-start;
     }
 
-    .comic-emoji {
-      font-size: 2.2rem;
-      margin: 8px 0;
-    }
+    .comic-emoji { font-size: 2.2rem; margin: 8px 0; }
+    .comic-caption { font-size: 0.85rem; line-height: 1.35; font-weight: 600; color: #333; }
 
-    .comic-caption {
-      font-size: 0.85rem;
-      line-height: 1.35;
-      font-weight: 600;
-      color: #333;
-    }
-
-    /* Sections, Quiz & Letter */
     section { margin-bottom: 30px; }
     h2 { color: var(--retro-teal); font-size: 1.35rem; margin-bottom: 12px; }
 
@@ -307,11 +392,7 @@
       padding: 18px;
     }
 
-    .quiz-options {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-    }
+    .quiz-options { display: grid; gap: 8px; margin-top: 12px; }
 
     .quiz-btn {
       background: #fff;
@@ -323,11 +404,7 @@
       font-size: 0.95rem;
     }
 
-    .quiz-feedback {
-      font-weight: bold;
-      margin-top: 10px;
-      min-height: 22px;
-    }
+    .quiz-feedback { font-weight: bold; margin-top: 10px; min-height: 22px; }
 
     .letter-card {
       background: #f1f8f9;
@@ -350,7 +427,6 @@
 
   <div class="color-bar"></div>
 
-  <!-- Navigation Bar -->
   <div class="issue-nav">
     <span>Issue #01 (Current View)</span>
     <a href="index.html">Issue #02: Classroom Games ⏭</a>
@@ -363,7 +439,7 @@
       <span class="badge">Issue #01 • Cassettes &amp; Curfews</span>
     </header>
 
-    <!-- CRT TV with DD Audio Button -->
+    <!-- CRT TV with DD Audio -->
     <div class="tv-wrapper">
       <div class="antenna-box">
         <div class="antenna-left"></div>
@@ -380,18 +456,50 @@
           <div class="speaker-grille"></div>
         </div>
       </div>
-      <div class="lace-runner" title="The embroidered lace runner keeps the dust away!"></div>
+      <div class="lace-runner"></div>
 
-      <!-- Hidden Audio Element linking to your uploaded file -->
       <audio id="ddAudio" src="doordarshan.mp3" preload="auto"></audio>
-
-      <!-- TV Trigger Button -->
       <button class="tv-broadcast-btn" id="ddPlayBtn" onclick="toggleDDAudio()">
         ▶ Turn On DD Broadcast
       </button>
     </div>
 
-    <!-- The 90s Life Cartoon Corner -->
+    <!-- MINI GAME: 15-SECOND PENCIL REWIND CHALLENGE -->
+    <div class="rewind-game-box">
+      <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">✏️ The Natraj Pencil Rewind Challenge</h3>
+      <p style="font-size: 0.85rem; color: #bbb; margin: 0 0 16px 0;">
+        The tape unspooled into a mess! Hit Start, then rapidly tap the pencil spool to rewind the ribbon in under 15 seconds!
+      </p>
+
+      <div class="game-hud">
+        <span>⏱️ Time Left: <span id="gameTimer" class="timer-text">15.0s</span></span>
+        <span>📼 Wound: <span id="gameProgress" class="spool-text">0%</span></span>
+      </div>
+
+      <div class="tape-visual">
+        <strong>TDK D-90 • Side A</strong>
+        <div class="tape-reels-row">
+          <!-- The interactive gear to click repeatedly -->
+          <div class="spool-gear" id="activeSpool" onclick="turnPencil()">
+            <span class="pencil-icon">✏️</span>
+          </div>
+          <div class="spool-gear" style="opacity: 0.5; cursor: default;">
+            <div style="width: 14px; height: 14px; background: #fff; border-radius: 50%;"></div>
+          </div>
+        </div>
+        <div style="font-size: 0.75rem; color: #666;">Tap the pencil spool as fast as you can!</div>
+        <div class="tangled-tape-bar">
+          <div class="tape-progress" id="tapeBar"></div>
+        </div>
+      </div>
+
+      <div class="game-actions">
+        <button class="game-btn" id="startBtn" onclick="startRewindGame()">▶ Start 15s Challenge</button>
+      </div>
+      <div class="game-result" id="gameResult"></div>
+    </div>
+
+    <!-- Cartoon Corner -->
     <div class="comic-section">
       <div class="comic-header">
         <span>Sunday Comic: The Chitrahaar Tragedy</span>
@@ -416,7 +524,7 @@
       </div>
     </div>
 
-    <!-- Feature Article -->
+    <!-- Article -->
     <section>
       <h2>📻 The Art of the Hexagonal Pencil &amp; Magnetic Tape</h2>
       <p>
@@ -427,7 +535,7 @@
       </p>
     </section>
 
-    <!-- Interactive Quiz -->
+    <!-- Quiz -->
     <section>
       <h2>🕹️ Sunday Nostalgia Quiz</h2>
       <div class="quiz-box">
@@ -442,7 +550,7 @@
       </div>
     </section>
 
-    <!-- Inland Letter -->
+    <!-- Letter -->
     <section>
       <h2>✉️ Inland Letter: From the Future</h2>
       <div class="letter-card">
@@ -461,7 +569,7 @@
   </div>
 
   <script>
-    // --- Real Doordarshan MP3 Audio Player ---
+    // --- Doordarshan Audio ---
     function toggleDDAudio() {
       const audio = document.getElementById('ddAudio');
       const btn = document.getElementById('ddPlayBtn');
@@ -473,8 +581,8 @@
           btn.innerText = "⏹ Turn Off DD Broadcast";
           screen.classList.add('playing');
           broadcastText.innerText = "• ON AIR •";
-        }).catch(err => {
-          alert("Make sure 'doordarshan.mp3' is uploaded to the root of your GitHub repository!");
+        }).catch(() => {
+          alert("Make sure 'doordarshan.mp3' is uploaded to your GitHub repository!");
         });
 
         audio.onended = () => {
@@ -488,6 +596,65 @@
         btn.innerText = "▶ Turn On DD Broadcast";
         screen.classList.remove('playing');
         broadcastText.innerText = "DOORDARSHAN";
+      }
+    }
+
+    // --- 15-Second Pencil Rewind Mini Game ---
+    let gameActive = false;
+    let rewoundTicks = 0;
+    const totalTicksNeeded = 30; // 30 rapid taps needed to fully rewind
+    let timeLeft = 150; // 15.0 seconds in deciseconds
+    let timerInterval = null;
+    let rotationDeg = 0;
+
+    function startRewindGame() {
+      gameActive = true;
+      rewoundTicks = 0;
+      timeLeft = 150;
+      rotationDeg = 0;
+      document.getElementById('tapeBar').style.width = "0%";
+      document.getElementById('gameProgress').innerText = "0%";
+      document.getElementById('gameTimer').innerText = "15.0s";
+      document.getElementById('gameResult').innerText = "";
+      document.getElementById('startBtn').innerText = "🔄 Restart Game";
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        const seconds = (timeLeft / 10).toFixed(1);
+        document.getElementById('gameTimer').innerText = seconds + "s";
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          gameActive = false;
+          document.getElementById('gameResult').innerHTML = 
+            "<span style='color: #e74c3c;'>❌ Time's up! The tape got chewed by the deck. Are you really a 90s kid? 📼</span>";
+        }
+      }, 100);
+    }
+
+    function turnPencil() {
+      if (!gameActive) {
+        if (rewoundTicks === 0) {
+          document.getElementById('gameResult').innerText = "👉 Click 'Start 15s Challenge' first!";
+        }
+        return;
+      }
+
+      rewoundTicks++;
+      rotationDeg += 45;
+      document.getElementById('activeSpool').style.transform = `rotate(${rotationDeg}deg)`;
+
+      const percentage = Math.min(100, Math.round((rewoundTicks / totalTicksNeeded) * 100));
+      document.getElementById('tapeBar').style.width = percentage + "%";
+      document.getElementById('gameProgress').innerText = percentage + "%";
+
+      if (rewoundTicks >= totalTicksNeeded) {
+        clearInterval(timerInterval);
+        gameActive = false;
+        const timeTaken = ((150 - timeLeft) / 10).toFixed(1);
+        document.getElementById('gameResult').innerHTML = 
+          `<span style='color: #2ecc71;'>🏆 Legend! Rewound in ${timeTaken}s! You've got pure 90s pencil muscle memory!</span>`;
       }
     }
 
