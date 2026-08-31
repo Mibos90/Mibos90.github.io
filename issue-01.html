@@ -290,7 +290,6 @@
       pointer-events: none;
     }
 
-    /* Tangled Tape Indicator Bar */
     .tangled-tape-bar {
       height: 10px;
       background: #444;
@@ -329,7 +328,7 @@
       min-height: 28px;
     }
 
-    /* Sections, Comic, Quiz */
+    /* Comic Section */
     .comic-section {
       background: #fffdf9;
       border: 2px solid #2d2621;
@@ -464,7 +463,7 @@
       </button>
     </div>
 
-    <!-- MINI GAME: 15-SECOND PENCIL REWIND CHALLENGE -->
+    <!-- MINI GAME: 15-SECOND PENCIL REWIND CHALLENGE (WITH MECHANICAL CLICK SOUND) -->
     <div class="rewind-game-box">
       <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">✏️ The Natraj Pencil Rewind Challenge</h3>
       <p style="font-size: 0.85rem; color: #bbb; margin: 0 0 16px 0;">
@@ -479,7 +478,6 @@
       <div class="tape-visual">
         <strong>TDK D-90 • Side A</strong>
         <div class="tape-reels-row">
-          <!-- The interactive gear to click repeatedly -->
           <div class="spool-gear" id="activeSpool" onclick="turnPencil()">
             <span class="pencil-icon">✏️</span>
           </div>
@@ -599,11 +597,36 @@
       }
     }
 
+    // --- Mechanical Spool Ratchet Sound Synthesizer (Web Audio API) ---
+    let spoolAudioCtx = null;
+
+    function playSpoolClick() {
+      if (!spoolAudioCtx) {
+        spoolAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      
+      const osc = spoolAudioCtx.createOscillator();
+      const gain = spoolAudioCtx.createGain();
+
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(320, spoolAudioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(40, spoolAudioCtx.currentTime + 0.03);
+
+      gain.gain.setValueAtTime(0.12, spoolAudioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, spoolAudioCtx.currentTime + 0.03);
+
+      osc.connect(gain);
+      gain.connect(spoolAudioCtx.destination);
+
+      osc.start();
+      osc.stop(spoolAudioCtx.currentTime + 0.03);
+    }
+
     // --- 15-Second Pencil Rewind Mini Game ---
     let gameActive = false;
     let rewoundTicks = 0;
-    const totalTicksNeeded = 30; // 30 rapid taps needed to fully rewind
-    let timeLeft = 150; // 15.0 seconds in deciseconds
+    const totalTicksNeeded = 30;
+    let timeLeft = 150; // 15.0 seconds
     let timerInterval = null;
     let rotationDeg = 0;
 
@@ -640,6 +663,9 @@
         }
         return;
       }
+
+      // Plays the mechanical ratchet click on every tap
+      playSpoolClick();
 
       rewoundTicks++;
       rotationDeg += 45;
