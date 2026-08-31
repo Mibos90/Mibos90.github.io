@@ -124,7 +124,7 @@
       font-size: 0.95rem;
     }
 
-    /* --- FLAMES CALCULATOR (NOTEBOOK AESTHETIC) --- */
+    /* --- FLAMES CALCULATOR --- */
     .flames-box {
       background: #fbfbf4;
       border: 2px solid #333;
@@ -238,9 +238,7 @@
       animation: popIn 0.5s ease-out;
     }
 
-    .heart-beat {
-      animation: beat 0.9s infinite alternate ease-in-out;
-    }
+    .heart-beat { animation: beat 0.9s infinite alternate ease-in-out; }
 
     @keyframes popIn {
       0% { transform: scale(0); opacity: 0; }
@@ -251,6 +249,186 @@
     @keyframes beat {
       0% { transform: scale(1); }
       100% { transform: scale(1.25); }
+    }
+
+    /* --- CLASSROOM BLACKBOARD MEMORY WALL --- */
+    .blackboard-frame {
+      background: #5a3825;
+      border: 10px solid #422616;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.25);
+      margin: 35px 0;
+      position: relative;
+    }
+
+    .chalkboard {
+      background: #1c3b2b; /* Classic dark green board */
+      border-radius: 6px;
+      padding: 24px 20px;
+      color: #f1f8f3;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle dusty chalk texture */
+    .chalkboard::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .blackboard-header {
+      text-align: center;
+      border-bottom: 2px dashed rgba(255,255,255,0.25);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .blackboard-header h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: #fff9e6;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .blackboard-header p {
+      margin: 4px 0 0 0;
+      font-size: 0.85rem;
+      color: #a8d5ba;
+    }
+
+    /* Chalk Form */
+    .chalk-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      background: rgba(0,0,0,0.2);
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .chalk-input, .chalk-textarea {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      padding: 10px;
+      color: #fff;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .chalk-input::placeholder, .chalk-textarea::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .chalk-textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .chalk-submit-btn {
+      background: #f4ecd8;
+      color: #2b2b2b;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      align-self: flex-start;
+      box-shadow: 0 3px 0 #b8ab91;
+      transition: all 0.1s;
+    }
+
+    .chalk-submit-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #b8ab91;
+    }
+
+    /* Notes Area */
+    .chalk-notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .chalk-note {
+      border-left: 3px solid #fffae6;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 0 6px 6px 0;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive;
+    }
+
+    .chalk-note-author {
+      font-size: 0.85rem;
+      color: #ffd166;
+      font-weight: bold;
+    }
+
+    .chalk-note-body {
+      font-size: 0.95rem;
+      color: #f7fdf9;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    /* Wooden chalk ledge with chalk sticks */
+    .chalk-ledge {
+      height: 12px;
+      background: #3b2214;
+      border-radius: 2px;
+      margin-top: 8px;
+      position: relative;
+    }
+
+    .chalk-stick {
+      width: 24px;
+      height: 6px;
+      background: #ffffff;
+      border-radius: 2px;
+      position: absolute;
+      top: 3px;
+      left: 20px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .chalk-stick-yellow {
+      width: 20px;
+      height: 6px;
+      background: #f9e79f;
+      border-radius: 2px;
+      position: absolute;
+      top: 3px;
+      left: 52px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .duster {
+      width: 44px;
+      height: 8px;
+      background: #8e5a3c;
+      border-radius: 2px;
+      position: absolute;
+      top: 2px;
+      right: 25px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
     /* Classroom Comic */
@@ -430,14 +608,13 @@
       <button class="bell-btn" id="bellBtn" onclick="ringSchoolBell()">🔔 Ring Recess Bell (Tan-Tan-Tan!)</button>
     </div>
 
-    <!-- FLAMES MINI GAME WITH KAHO NAA PYAR HAI TRACK -->
+    <!-- FLAMES MINI GAME WITH KAHO NAA PYAAR HAI AUDIO -->
     <div class="flames-box">
       <h3 style="margin: 0 0 4px 0; color: var(--retro-orange);">🔥 The Back-Page FLAMES Calculator</h3>
       <p style="font-size: 0.85rem; color: #555; margin: 0 0 12px 0;">
         Enter your name &amp; your crush's name. Hit calculate to let the romance track play as fate strikes!
       </p>
 
-      <!-- Audio Element for Kaho Naa Pyaar Hai -->
       <audio id="knphAudio" src="kahonapyarhai.mp3" preload="auto"></audio>
 
       <div class="flames-letters">
@@ -456,6 +633,43 @@
       </div>
 
       <div class="flames-result" id="flamesOutcome"></div>
+    </div>
+
+    <!-- CLASSROOM BLACKBOARD MEMORY WALL -->
+    <div class="blackboard-frame">
+      <div class="chalkboard">
+        <div class="blackboard-header">
+          <h3>CLASSROOM BLACKBOARD</h3>
+          <p>Scrawl your favourite 80s/90s school memory with a piece of chalk:</p>
+        </div>
+
+        <!-- Chalk scribble input form -->
+        <div class="chalk-form">
+          <input type="text" id="chalkAuthor" class="chalk-input" placeholder="Your Name / Nickname (e.g. Bunty, Class 6-B)" maxlength="35">
+          <textarea id="chalkText" class="chalk-textarea" placeholder="Write your memory here (e.g., hiding lunchbox before period 4, fountain pen ink battles...)" maxlength="200"></textarea>
+          <button class="chalk-submit-btn" onclick="postChalkMemory()">
+            ✏️ Scribble on Board
+          </button>
+        </div>
+
+        <!-- The List of Chalk Notes -->
+        <div class="chalk-notes-list" id="chalkNotesContainer">
+          <!-- Default vintage memories -->
+          <div class="chalk-note">
+            <div class="chalk-note-author">Rahul (Roll No. 24) • 1996</div>
+            <div class="chalk-note-body">"Eating sweet mango pickle from the steel tiffin under the bench while the Maths teacher was drawing triangles on the board!"</div>
+          </div>
+          <div class="chalk-note">
+            <div class="chalk-note-author">Pooja • Class 8</div>
+            <div class="chalk-note-body">"Dipping the nib of the hero fountain pen into blue Chelpark ink and accidentally creating a blot on my clean white PT uniform shirt."</div>
+          </div>
+        </div>
+      </div>
+      <div class="chalk-ledge">
+        <div class="chalk-stick"></div>
+        <div class="chalk-stick-yellow"></div>
+        <div class="duster"></div>
+      </div>
     </div>
 
     <!-- Comic Strip -->
@@ -544,7 +758,60 @@
   </div>
 
   <script>
-    // --- FLAMES WITH KAHO NAA PYAAR HAI AUDIO INTEGRATION ---
+    // --- BLACKBOARD MEMORY SCRATCHPAD LOGIC ---
+    function loadSavedChalkNotes() {
+      const container = document.getElementById('chalkNotesContainer');
+      const saved = JSON.parse(localStorage.getItem('chalkMemories') || '[]');
+      saved.forEach(item => {
+        const noteEl = document.createElement('div');
+        noteEl.className = 'chalk-note';
+        noteEl.innerHTML = `
+          <div class="chalk-note-author">${item.author}</div>
+          <div class="chalk-note-body">"${item.text}"</div>
+        `;
+        container.prepend(noteEl);
+      });
+    }
+
+    function postChalkMemory() {
+      const authorInput = document.getElementById('chalkAuthor');
+      const textInput = document.getElementById('chalkText');
+      const author = authorInput.value.trim() || 'Anonymous 90s Kid';
+      const text = textInput.value.trim();
+
+      if (!text) {
+        alert("Please write a school memory first!");
+        return;
+      }
+
+      const container = document.getElementById('chalkNotesContainer');
+      const noteEl = document.createElement('div');
+      noteEl.className = 'chalk-note';
+      noteEl.innerHTML = `
+        <div class="chalk-note-author">${escapeHtml(author)} • Just now</div>
+        <div class="chalk-note-body">"${escapeHtml(text)}"</div>
+      `;
+      container.prepend(noteEl);
+
+      // Save locally
+      const saved = JSON.parse(localStorage.getItem('chalkMemories') || '[]');
+      saved.push({ author: author + ' • Just now', text: text });
+      localStorage.setItem('chalkMemories', JSON.stringify(saved));
+
+      // Reset form
+      textInput.value = '';
+      authorInput.value = '';
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[m]);
+    }
+
+    window.addEventListener('DOMContentLoaded', loadSavedChalkNotes);
+
+    // --- FLAMES WITH KAHO NAA PYAAR HAI AUDIO ---
     function startFlamesWithMusic() {
       const raw1 = document.getElementById('name1').value.trim().toLowerCase().replace(/\s+/g, '');
       const raw2 = document.getElementById('name2').value.trim().toLowerCase().replace(/\s+/g, '');
@@ -552,7 +819,6 @@
       const submitBtn = document.getElementById('flamesSubmitBtn');
       const audio = document.getElementById('knphAudio');
 
-      // Reset letter styles
       ['F', 'L', 'A', 'M', 'E', 'S'].forEach(l => {
         const el = document.getElementById('fl-' + l);
         el.className = 'f-letter';
@@ -563,18 +829,14 @@
         return;
       }
 
-      // Play Kaho Naa Pyaar Hai MP3
       if (audio) {
         audio.currentTime = 0;
-        audio.play().catch(() => {
-          console.log("Audio play blocked or file not found yet.");
-        });
+        audio.play().catch(() => {});
       }
 
       submitBtn.disabled = true;
       outcome.innerHTML = "<span style='color: #e67e22;'>🎶 Striking out common letters...</span>";
 
-      // Calculate strike remainder
       let a1 = raw1.split('');
       let a2 = raw2.split('');
 
@@ -599,7 +861,6 @@
         return;
       }
 
-      // Step-by-step elimination animation synced to music
       let letters = ['F', 'L', 'A', 'M', 'E', 'S'];
       let ptr = 0;
 
@@ -611,43 +872,18 @@
 
           setTimeout(eliminateNext, 850);
         } else {
-          // Final Winner Reveal
           const winner = letters[0];
           const winEl = document.getElementById('fl-' + winner);
           winEl.classList.add('winner');
           submitBtn.disabled = false;
 
           const results = {
-            'F': {
-              icon: '🤝 🎗️',
-              text: 'Friends Forever!',
-              sub: 'Middle bench partners for life. Sharing samosas and school gossip.'
-            },
-            'L': {
-              icon: '💖 🌹',
-              text: 'Lovers!',
-              sub: 'Kaho Naa Pyaar Hai plays in slow motion! Eye contact during morning assembly.'
-            },
-            'A': {
-              icon: '🥰 ✨',
-              text: 'Affection!',
-              sub: 'Secretly saving the good Camlin compass and scented eraser for them.'
-            },
-            'M': {
-              icon: '💍 💒',
-              text: 'Marriage!',
-              sub: 'Band, Baaja, Baaraat! 90s slow romance turned into lifetime companionship.'
-            },
-            'E': {
-              icon: '🥊 ⚡',
-              text: 'Enemies!',
-              sub: 'KATTI! Drawing a permanent chalk line down the middle of the desk.'
-            },
-            'S': {
-              icon: '🪢 👫',
-              text: 'Siblings!',
-              sub: 'Tying the golden sparkly Rakhi in homeroom period. Total safe zone!'
-            }
+            'F': { icon: '🤝 🎗️', text: 'Friends Forever!', sub: 'Middle bench partners for life. Sharing samosas and school gossip.' },
+            'L': { icon: '💖 🌹', text: 'Lovers!', sub: 'Kaho Naa Pyaar Hai plays in slow motion! Eye contact during morning assembly.' },
+            'A': { icon: '🥰 ✨', text: 'Affection!', sub: 'Secretly saving the good Camlin compass and scented eraser for them.' },
+            'M': { icon: '💍 💒', text: 'Marriage!', sub: 'Band, Baaja, Baaraat! 90s slow romance turned into lifetime companionship.' },
+            'E': { icon: '🥊 ⚡', text: 'Enemies!', sub: 'KATTI! Drawing a permanent chalk line down the middle of the desk.' },
+            'S': { icon: '🪢 👫', text: 'Siblings!', sub: 'Tying the golden sparkly Rakhi in homeroom period. Total safe zone!' }
           };
 
           const res = results[winner];
