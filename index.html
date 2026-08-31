@@ -124,7 +124,7 @@
       font-size: 0.95rem;
     }
 
-    /* --- FLAMES CALCULATOR NOTEBOOK STYLE --- */
+    /* --- FLAMES CALCULATOR (NOTEBOOK AESTHETIC) --- */
     .flames-box {
       background: #fbfbf4;
       border: 2px solid #333;
@@ -158,12 +158,6 @@
       background: #fff;
       color: #333;
       transition: all 0.3s ease;
-    }
-
-    .f-letter.evaluating {
-      border-color: #e67e22;
-      background: #fff3e0;
-      transform: translateY(-4px);
     }
 
     .f-letter.struck {
@@ -237,7 +231,6 @@
       justify-content: center;
     }
 
-    /* Animated Visual Result Popups */
     .icon-anim {
       font-size: 3rem;
       display: inline-block;
@@ -437,12 +430,15 @@
       <button class="bell-btn" id="bellBtn" onclick="ringSchoolBell()">🔔 Ring Recess Bell (Tan-Tan-Tan!)</button>
     </div>
 
-    <!-- FLAMES CALCULATOR MINI GAME WITH PEHLA NASHA SOUND -->
+    <!-- FLAMES MINI GAME WITH KAHO NAA PYAR HAI TRACK -->
     <div class="flames-box">
       <h3 style="margin: 0 0 4px 0; color: var(--retro-orange);">🔥 The Back-Page FLAMES Calculator</h3>
       <p style="font-size: 0.85rem; color: #555; margin: 0 0 12px 0;">
-        Enter two names. When you hit calculate, listen for that 90s romance tune while fate decides!
+        Enter your name &amp; your crush's name. Hit calculate to let the romance track play as fate strikes!
       </p>
+
+      <!-- Audio Element for Kaho Naa Pyaar Hai -->
+      <audio id="knphAudio" src="kahonapyarhai.mp3" preload="auto"></audio>
 
       <div class="flames-letters">
         <div class="f-letter" id="fl-F">F</div>
@@ -548,63 +544,15 @@
   </div>
 
   <script>
-    // --- PEHLA NASHA NOSTALGIA SYNTHESIZER ---
-    let loveAudioCtx = null;
-    let loveMelodyTimer = null;
-
-    // Classic romance chord progression (C - F - G - Am)
-    const pehlaNashaNotes = [
-      { f: 523.25, d: 350 }, // C5
-      { f: 659.25, d: 350 }, // E5
-      { f: 783.99, d: 500 }, // G5
-      { f: 659.25, d: 300 }, // E5
-      { f: 880.00, d: 600 }, // A5 (Pehla...)
-      { f: 783.99, d: 700 }, // G5 (...Nasha)
-      { f: 659.25, d: 400 }, // E5
-      { f: 587.33, d: 500 }, // D5 (Pehla...)
-      { f: 523.25, d: 800 }  // C5 (...Khumaar)
-    ];
-
-    function playLoveSynth() {
-      if (!loveAudioCtx) {
-        loveAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-
-      let noteIdx = 0;
-      function playStep() {
-        if (noteIdx >= pehlaNashaNotes.length) return;
-        const cur = pehlaNashaNotes[noteIdx];
-
-        const osc = loveAudioCtx.createOscillator();
-        const gain = loveAudioCtx.createGain();
-
-        // Warm 90s electric piano vibe
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(cur.f, loveAudioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0.22, loveAudioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, loveAudioCtx.currentTime + (cur.d / 1000));
-
-        osc.connect(gain);
-        gain.connect(loveAudioCtx.destination);
-
-        osc.start();
-        osc.stop(loveAudioCtx.currentTime + (cur.d / 1000));
-
-        noteIdx++;
-        loveMelodyTimer = setTimeout(playStep, cur.d + 50);
-      }
-      playStep();
-    }
-
-    // --- INTERACTIVE FLAMES DRAMATIC CALCULATION ---
+    // --- FLAMES WITH KAHO NAA PYAAR HAI AUDIO INTEGRATION ---
     function startFlamesWithMusic() {
       const raw1 = document.getElementById('name1').value.trim().toLowerCase().replace(/\s+/g, '');
       const raw2 = document.getElementById('name2').value.trim().toLowerCase().replace(/\s+/g, '');
       const outcome = document.getElementById('flamesOutcome');
       const submitBtn = document.getElementById('flamesSubmitBtn');
+      const audio = document.getElementById('knphAudio');
 
-      // Reset letters
+      // Reset letter styles
       ['F', 'L', 'A', 'M', 'E', 'S'].forEach(l => {
         const el = document.getElementById('fl-' + l);
         el.className = 'f-letter';
@@ -615,13 +563,18 @@
         return;
       }
 
-      // Play the iconic 90s love theme
-      playLoveSynth();
+      // Play Kaho Naa Pyaar Hai MP3
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch(() => {
+          console.log("Audio play blocked or file not found yet.");
+        });
+      }
 
       submitBtn.disabled = true;
       outcome.innerHTML = "<span style='color: #e67e22;'>🎶 Striking out common letters...</span>";
 
-      // Compute strike remainder
+      // Calculate strike remainder
       let a1 = raw1.split('');
       let a2 = raw2.split('');
 
@@ -640,16 +593,15 @@
         setTimeout(() => {
           outcome.innerHTML = `
             <div class="icon-anim heart-beat">💖💫</div>
-            <div style="color: #d63031;">Soulmates! The names cancel out into pure magic!</div>`;
+            <div style="color: #d63031;">Soulmates! The names cancel out into pure romance!</div>`;
           submitBtn.disabled = false;
         }, 1500);
         return;
       }
 
-      // Step-by-step elimination animation
+      // Step-by-step elimination animation synced to music
       let letters = ['F', 'L', 'A', 'M', 'E', 'S'];
       let ptr = 0;
-      let step = 0;
 
       function eliminateNext() {
         if (letters.length > 1) {
@@ -657,8 +609,7 @@
           const struck = letters.splice(ptr, 1)[0];
           document.getElementById('fl-' + struck).classList.add('struck');
 
-          step++;
-          setTimeout(eliminateNext, 750); // Dramatic rhythm synced to melody
+          setTimeout(eliminateNext, 850);
         } else {
           // Final Winner Reveal
           const winner = letters[0];
@@ -675,7 +626,7 @@
             'L': {
               icon: '💖 🌹',
               text: 'Lovers!',
-              sub: 'Pehla Nasha plays in slow motion! Eye contact during morning assembly.'
+              sub: 'Kaho Naa Pyaar Hai plays in slow motion! Eye contact during morning assembly.'
             },
             'A': {
               icon: '🥰 ✨',
@@ -709,7 +660,7 @@
         }
       }
 
-      setTimeout(eliminateNext, 800);
+      setTimeout(eliminateNext, 900);
     }
 
     // --- Recess Bell Synthesizer ---
@@ -761,7 +712,7 @@
       });
     }
 
-    // --- Chit Picker Logic ---
+    // --- Folded Chit Logic ---
     function revealChit(btn, role) {
       btn.innerText = role;
       btn.style.borderColor = "#1d707f";
