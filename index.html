@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The 90s Indian Kid | Weekly Rewind</title>
+  <title>The 90s Indian Kid | Issue #02: Classroom Paper Games</title>
   <style>
     :root {
       --paper: #faf6ee;
       --card-bg: #ffffff;
       --retro-orange: #d44d22;
       --retro-teal: #1d707f;
-      --retro-wood: #5a3825;
-      --retro-lace: #f3efe6;
+      --retro-gold: #c98a2c;
       --border-soft: #e3d9cc;
       --text: #2c2523;
     }
@@ -25,29 +24,52 @@
       padding: 16px;
     }
 
-    /* We are removing the DD Color Bar. The collage itself is colorful. */
+    /* Archive Navigation Bar */
+    .issue-nav {
+      max-width: 720px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #f0ebe1;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .issue-nav a {
+      color: var(--retro-teal);
+      text-decoration: none;
+    }
+
+    .issue-nav a:hover {
+      text-decoration: underline;
+    }
 
     .container {
       max-width: 720px;
-      margin: 20px auto; /* Slightly less top margin without the color bar */
+      margin: 0 auto;
       background: var(--card-bg);
-      padding: 24px 20px; /* Reduced padding slightly for better image focus */
+      padding: 24px 20px;
       border-radius: 12px;
       border: 1px solid var(--border-soft);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-      overflow: hidden; /* Important for the full-width image */
+      overflow: hidden;
     }
 
     header {
       text-align: center;
-      padding-bottom: 22px;
-      margin-bottom: 30px;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      border-bottom: 2px dashed var(--border-soft);
     }
 
     header h1 {
       margin: 0 0 6px 0;
       color: var(--retro-orange);
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       letter-spacing: -0.5px;
     }
 
@@ -69,9 +91,9 @@
       text-transform: uppercase;
     }
 
-    /* --- CREATIVE INTEGRATION OF YOUR IMAGE --- */
+    /* Image Wrapper */
     .collage-wrapper {
-      margin: -24px -20px 30px -20px; /* Full-width image using negative margins */
+      margin: -24px -20px 24px -20px;
       position: relative;
     }
 
@@ -79,45 +101,23 @@
       width: 100%;
       height: auto;
       display: block;
-      /* We use a mask-image to create a creative, ragged, distressed edge 
-         on the bottom, blending it into the page paper. 
-         This is a very advanced retro trick! We define the edge in SVG/gradient. */
       -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-      
-      /* If your browser doesn't support mask-image, we use a simple distressed border. */
-      border-bottom: 15px solid var(--paper);
-      box-sizing: border-box;
+      border-bottom: 12px solid var(--paper);
     }
 
-    /* Lace Cloth is now draped only underneath the image and is centered,
-       making it look like a doily resting on the table below the collage. */
-    .collage-doily {
-      width: 60%;
-      max-width: 300px;
-      height: 10px;
-      background: repeating-linear-gradient(45deg, #f3efe6, #f3efe6 5px, #e8e2d4 5px, #e8e2d4 10px);
-      border-radius: 0 0 10px 10px;
-      border-bottom: 2px dashed #b8ad9c;
-      box-shadow: 0 2px 3px rgba(0,0,0,0.03);
-      margin: -20px auto 0 auto; /* Negative margin pulls it slightly under the image */
-      position: relative;
-      z-index: 10;
-    }
-
-    /* --- CARTOON / COMIC STRIP CORNER --- */
-    /* Same as before, now below the collage */
+    /* Classroom Comic Strip */
     .comic-section {
       background: #fffdf9;
       border: 2px solid #2d2621;
       border-radius: 10px;
-      padding: 18px;
-      margin: 32px 0;
+      padding: 16px;
+      margin: 28px 0;
       box-shadow: 4px 4px 0 #2d2621;
     }
 
     .comic-header {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 800;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -142,9 +142,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 140px;
+      min-height: 145px;
       text-align: center;
-      position: relative;
     }
 
     .panel-tag {
@@ -158,8 +157,8 @@
     }
 
     .comic-emoji {
-      font-size: 2.2rem;
-      margin: 8px 0;
+      font-size: 2rem;
+      margin: 6px 0;
     }
 
     .comic-caption {
@@ -169,79 +168,66 @@
       color: #333;
     }
 
-    /* --- CASSETTE 2-IN-1 PLAYER --- */
-    /* Updated styling for less boxy feel */
-    .cassette-deck {
-      background: #252422;
-      border-radius: 10px;
+    /* Interactive Raja Mantri Chit Board */
+    .chit-game-box {
+      background: #fdf8ee;
+      border: 2px solid var(--retro-gold);
+      border-radius: 8px;
       padding: 20px;
       margin: 30px 0;
-      border: 3px solid #3b3935;
-      color: #fff;
       text-align: center;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-      position: relative;
     }
 
-    .cassette-label {
-      background: #fdfbf7;
-      color: #222;
-      padding: 8px 14px;
-      border-radius: 4px;
-      display: inline-block;
-      font-family: monospace;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border-top: 4px solid var(--retro-orange);
-      margin-bottom: 12px;
-    }
-
-    .tape-reels {
+    .chits-grid {
       display: flex;
       justify-content: center;
-      gap: 36px;
-      margin: 10px 0 16px 0;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 16px 0;
     }
 
-    .reel {
-      width: 44px;
-      height: 44px;
-      background: #444;
-      border-radius: 50%;
-      border: 4px dashed #888;
+    .chit-btn {
+      width: 80px;
+      height: 60px;
+      background: #fdfbf7;
+      border: 2px dashed #b59b72;
+      border-radius: 6px;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 0.85rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
 
-    .reel-hole {
-      width: 14px;
-      height: 14px;
-      background: #252422;
-      border-radius: 50%;
+    .chit-btn:hover {
+      transform: translateY(-2px);
+      background: #fff;
     }
 
-    .spinning {
-      animation: spin 2s linear infinite;
+    /* Content Sections */
+    section { margin-bottom: 28px; }
+    h2 { color: var(--retro-teal); font-size: 1.3rem; margin-bottom: 12px; }
+
+    .game-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
     }
 
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-
-    .play-btn {
-      background: var(--retro-orange);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.95rem;
+    .game-list li {
+      padding: 10px 0;
+      border-bottom: 1px dotted var(--border-soft);
     }
 
-    /* Sections, Quiz & Letter */
-    section { margin-bottom: 30px; }
-    h2 { color: var(--retro-teal); font-size: 1.35rem; margin-bottom: 12px; }
+    .game-list strong {
+      color: var(--retro-orange);
+    }
 
+    /* Quiz */
     .quiz-box {
       background: #fdf8ed;
       border: 2px solid #e5b95a;
@@ -285,162 +271,130 @@
       color: #887e74;
       border-top: 1px solid var(--border-soft);
       padding-top: 20px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation Bar to switch issues -->
+  <div class="issue-nav">
+    <a href="issue-01.html">⏮ Issue #01: Tapes &amp; Curfews</a>
+    <span>Issue #02 (Current)</span>
+    <span style="color: #999;">Issue #03 (Next Sunday) ⏭</span>
+  </div>
+
   <div class="container">
     <header>
       <h1>The 90s Indian Kid</h1>
-      <p>A weekly rewind into the golden age of CRT, cassettes, and curfews.</p>
-      <span class="badge">Issue #01 • August 2026 Edition</span>
+      <p>A weekly rewind into the golden age of ruled pages, ink pens, and recess whistles.</p>
+      <span class="badge">Issue #02 • Classroom Games Edition</span>
     </header>
 
-    <!-- CREATIVE IMAGE INTEGRATION -->
+    <!-- Top Realistic Image Collage -->
     <div class="collage-wrapper">
-      <!-- We load your image file HERE -->
-      <img src="image_0.png" alt="A lively collage of 90s Indian memories" class="retro-collage">
-      <!-- The lace doily is now centered underneath -->
-      <div class="collage-doily"></div>
+      <img src="games-collage.png" onerror="this.src='image_0.png'" alt="90s Indian Classroom Paper Games" class="retro-collage">
     </div>
 
-    <!-- The 90s Life Cartoon Corner (Unchanged) -->
+    <!-- Cartoon: The Analog Classroom -->
     <div class="comic-section">
       <div class="comic-header">
-        <span>Sunday Comic: The Chitrahaar Tragedy</span>
-        <span>Ep. 01</span>
+        <span>Sunday Comic: Period 6 • Social Studies</span>
+        <span>Ep. 02</span>
       </div>
       <div class="comic-grid">
         <div class="comic-panel">
-          <span class="panel-tag">7:55 PM</span>
-          <div class="comic-emoji">📺 ⏳</div>
-          <div class="comic-caption">Waiting whole week through 4 boring B&amp;W songs just to get 1 colorful 90s track.</div>
+          <span class="panel-tag">Front Bench</span>
+          <div class="comic-emoji">👩‍🏫 📖</div>
+          <div class="comic-caption">Teacher reading page 84 out of a 400-page textbook. Chalk dust flying in the afternoon sunray.</div>
         </div>
         <div class="comic-panel">
-          <span class="panel-tag">8:14 PM</span>
-          <div class="comic-emoji">🤩 🎶</div>
-          <div class="comic-caption">Your all-time favorite song's guitar intro finally begins to play!</div>
+          <span class="panel-tag">Middle Bench</span>
+          <div class="comic-emoji">🎒 🍼</div>
+          <div class="comic-caption">Refilling the red Milton insulated bottle with lukewarm water from the school tap.</div>
         </div>
-        <div class="comic-panel" style="background: #fff0f0;">
-          <span class="panel-tag">8:15 PM</span>
-          <div class="comic-emoji">⚡ 🕯️ 😭</div>
-          <div class="comic-caption">*CUT!* Total power blackout. The inverter screams. Mom brings out the candle.</div>
+        <div class="comic-panel" style="background: #f0f7ff;">
+          <span class="panel-tag">Last Bench</span>
+          <div class="comic-emoji">🤫 📝</div>
+          <div class="comic-caption">Fierce 4-player game of Raja Mantri Chor Sipahi behind an upright geometry box.</div>
         </div>
       </div>
     </div>
 
-    <!-- Interactive 2-in-1 Stereo Deck (Unchanged, lace removed from top) -->
-    <div class="cassette-deck">
-      <div class="cassette-label">TDK D-90 • Vividh Bharati Jingles</div>
-      <div class="tape-reels">
-        <div class="reel" id="leftReel"><div class="reel-hole"></div></div>
-        <div class="reel" id="rightReel"><div class="reel-hole"></div></div>
+    <!-- Interactive Mini Toy: Raja Mantri Chits -->
+    <div class="chit-game-box">
+      <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">Folded Chit Picker</h3>
+      <p style="font-size: 0.9rem; margin: 0 0 12px 0;">Tap a chit to unfold your fate:</p>
+      <div class="chits-grid">
+        <button class="chit-btn" onclick="revealChit(this, '👑 Raja (1000 pts)')">Chit #1</button>
+        <button class="chit-btn" onclick="revealChit(this, '🕵️ Mantri (800 pts)')">Chit #2</button>
+        <button class="chit-btn" onclick="revealChit(this, '💂 Sipahi (500 pts)')">Chit #3</button>
+        <button class="chit-btn" onclick="revealChit(this, '🦹 Chor (0 pts)')">Chit #4</button>
       </div>
-      <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶ Press Play on Deck</button>
+      <div id="chitResult" style="font-weight: bold; min-height: 24px; color: var(--retro-teal);"></div>
     </div>
 
-    <!-- Feature Article -->
+    <!-- Story Feature -->
     <section>
-      <h2>📻 The Art of the Hexagonal Pencil &amp; Magnetic Tape</h2>
+      <h2>✏️ The Last Page of the Rough Notebook</h2>
       <p>
-        Before instant cloud streaming, middle-class music curation required surgical discipline. You sat cross-legged next to the stereo deck, fingers resting on the plastic <strong>[REC]</strong> and <strong>[PLAY]</strong> switches. You prayed the radio jockey wouldn’t talk over the opening synthesizer chords.
+        Before tablets, smartphones, and app stores, the greatest gaming console in the world was the back page of an unruled register notebook. Armed with only a blue ballpoint Reynolds 045 or a leaky Camlin fountain pen, we built entire multiplayer ecosystems right under the teacher's nose.
       </p>
-      <p>
-        And when the player malfunctioned and chewed up the ribbon into a hopeless black knot? You didn't replace it. You found a hexagonal Natraj pencil, slotted it into the tape sprocket, and hand-cranked the reel back into shape with total concentration.
-      </p>
+      <ul class="game-list">
+        <li><strong>Raja Mantri Chor Sipahi:</strong> Four torn bits of square paper, folded tight and tossed into the air. The thrill of Mantri squinting across the wooden bench to guess who was the Chor!</li>
+        <li><strong>Dots &amp; Boxes (Houses):</strong> A grid of pen dots where one careless move handed your benchmate a cascade of 8 closed boxes labeled with their initial.</li>
+        <li><strong>Red, Blue, Yellow, Green (Origami Fortune Teller):</strong> Sliding your fingers into paper cones: <em>"Which color do you want? How many times?"</em></li>
+        <li><strong>Name, Place, Animal, Thing:</strong> The mad scramble to invent an animal starting with the letter "Q" or "X" before someone yelled *STOP!*</li>
+        <li><strong>FLAMES:</strong> Calculating the secret romantic fate between you and your crush on the inner cover of a Hindi notebook.</li>
+      </ul>
     </section>
 
     <!-- Interactive Quiz -->
     <section>
-      <h2>🕹️ Sunday Nostalgia Quiz</h2>
-      <div class="quiz-box">
-        <p><strong>Clue:</strong> Which red-and-white packed treat let 90s kids pretend to be Bollywood movie stars without any actual smoke?</p>
-        <div class="quiz-options">
-          <button class="quiz-btn" onclick="checkAnswer(false, this)">A) Poppins</button>
-          <button class="quiz-btn" onclick="checkAnswer(true, this)">B) Phantom Sweet Cigarettes</button>
-          <button class="quiz-btn" onclick="checkAnswer(false, this)">C) Mango Mood</button>
-          <button class="quiz-btn" onclick="checkAnswer(false, this)">D) Big Babol</button>
+      <h2>🕹️ Paper Nostalgia Quiz</h2>
+      <div class="quiz-card">
+        <div class="quiz-box">
+          <p><strong>Clue:</strong> In the game of <em>Raja Mantri Chor Sipahi</em>, which score was traditionally assigned to the <strong>Mantri</strong>?</p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkQuiz(false, this)">A) 1000 points</button>
+            <button class="quiz-btn" onclick="checkQuiz(true, this)">B) 800 points</button>
+            <button class="quiz-btn" onclick="checkQuiz(false, this)">C) 500 points</button>
+            <button class="quiz-btn" onclick="checkQuiz(false, this)">D) 100 points</button>
+          </div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
         </div>
-        <div class="quiz-feedback" id="quizFeedback"></div>
       </div>
     </section>
 
-    <!-- Inland Letter -->
+    <!-- Letter From 2026 -->
     <section>
-      <h2>✉️ Inland Letter: 2026 to the 90s Kid</h2>
+      <h2>✉️ Letter to the Last-Bencher</h2>
       <div class="letter-card">
         <p>
-          "Dear 10-year-old me sitting on the living room rug:
+          "Dear kid scribbling dots on page 120 during Chemistry:
         </p>
         <p>
-          In the future, you will hold a glass slab that gives you every song, movie, and video game on earth instantly. But you will miss the anticipation. You will miss running outside the minute the evening streetlights turned on, shouting across your friend’s balcony, and drinking chilled water straight from the red clay <em>matka</em>. Don’t rush growing up."
+          Thirty years from now, you will own pocket computers capable of rendering entire 3D virtual worlds at 120 frames a second. Yet, none of them will match the pure, quiet tension of folding four paper chits with your three best friends on a rainy Thursday afternoon. Don't worry if the ink stained your fingers today. That ink will outlast all of this."
         </p>
       </div>
     </section>
 
     <footer>
-      <p>Built with pure 90s nostalgia • Updated weekly • No subscriptions required.</p>
+      <p>Built with pure 90s nostalgia • Updated every Sunday • Dedicated to the backbenchers.</p>
     </footer>
   </div>
 
   <script>
-    // Retro Chime Synthesizer
-    let audioCtx = null;
-    let isPlaying = false;
-    let noteTimer = null;
-
-    const notes = [
-      { f: 523.25, d: 300 },
-      { f: 587.33, d: 300 },
-      { f: 659.25, d: 300 },
-      { f: 783.99, d: 450 },
-      { f: 659.25, d: 250 },
-      { f: 783.99, d: 600 }
-    ];
-
-    function toggleAudio() {
-      const btn = document.getElementById('playBtn');
-      const left = document.getElementById('leftReel');
-      const right = document.getElementById('rightReel');
-
-      if (isPlaying) {
-        isPlaying = false;
-        clearTimeout(noteTimer);
-        btn.innerText = "▶ Press Play on Deck";
-        left.classList.remove('spinning');
-        right.classList.remove('spinning');
-        return;
-      }
-
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      isPlaying = true;
-      btn.innerText = "⏹ Eject Tape";
-      left.classList.add('spinning');
-      right.classList.add('spinning');
-
-      let idx = 0;
-      function playStep() {
-        if (!isPlaying) return;
-        const cur = notes[idx];
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(cur.f, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (cur.d / 1000));
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + (cur.d / 1000));
-
-        idx = (idx + 1) % notes.length;
-        noteTimer = setTimeout(playStep, cur.d + 70);
-      }
-      playStep();
+    // Chit reveal logic
+    function revealChit(btn, role) {
+      btn.innerText = role;
+      btn.style.borderColor = "#1d707f";
+      btn.style.background = "#eef7f8";
+      document.getElementById('chitResult').innerText = "You picked: " + role;
     }
 
-    function checkAnswer(isCorrect, btn) {
+    // Quiz logic
+    function checkQuiz(isCorrect, btn) {
       const fb = document.getElementById('quizFeedback');
       document.querySelectorAll('.quiz-btn').forEach(b => {
         b.style.borderColor = "#d4c5b1";
@@ -451,12 +405,12 @@
         btn.style.background = "#e8f5e9";
         btn.style.borderColor = "#4caf50";
         fb.style.color = "#2e7d32";
-        fb.innerText = "✨ Spot on! The iconic chalky, sugary Phantom stick we all held like a cigarette!";
+        fb.innerText = "✨ Correct! Raja got 1000, Mantri got 800, Sipahi got 500, and Chor got 0!";
       } else {
         btn.style.background = "#ffebee";
         btn.style.borderColor = "#f44336";
         fb.style.color = "#c62828";
-        fb.innerText = "Oops, not that one! Think of the minty candy stick in the red packet...";
+        fb.innerText = "Not quite! Remember: Raja got 1000, and Sipahi got 500...";
       }
     }
   </script>
