@@ -106,6 +106,32 @@
       border-bottom: 12px solid var(--paper);
     }
 
+    /* Sound Bell Box */
+    .bell-box {
+      text-align: center;
+      margin: 25px 0;
+      background: #fff8e7;
+      border: 2px dashed #d4a373;
+      padding: 18px;
+      border-radius: 8px;
+    }
+
+    .bell-btn {
+      background: var(--retro-orange);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.1s ease;
+    }
+
+    .bell-btn:active {
+      transform: scale(0.97);
+    }
+
     /* Classroom Comic Strip */
     .comic-section {
       background: #fffdf9;
@@ -187,8 +213,8 @@
     }
 
     .chit-btn {
-      width: 80px;
-      height: 60px;
+      width: 85px;
+      height: 64px;
       background: #fdfbf7;
       border: 2px dashed #b59b72;
       border-radius: 6px;
@@ -277,7 +303,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar to switch issues -->
+  <!-- Archive Bar -->
   <div class="issue-nav">
     <a href="issue-01.html">⏮ Issue #01: Tapes &amp; Curfews</a>
     <span>Issue #02 (Current)</span>
@@ -291,9 +317,19 @@
       <span class="badge">Issue #02 • Classroom Games Edition</span>
     </header>
 
-    <!-- Top Realistic Image Collage -->
+    <!-- Header Image Collage (Falls back safely to image_0.png if games-collage.png is not yet uploaded) -->
     <div class="collage-wrapper">
       <img src="games-collage.png" onerror="this.src='image_0.png'" alt="90s Indian Classroom Paper Games" class="retro-collage">
+    </div>
+
+    <!-- Interactive Recess School Bell (Method 1: Synth Audio) -->
+    <div class="bell-box">
+      <div style="font-size: 2.2rem; margin-bottom: 4px;">🔔</div>
+      <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">Period 6: The Recess Bell</h3>
+      <p style="font-size: 0.85rem; margin: 0 0 14px 0; color: #666;">
+        That heavy brass gong hanging in the corridor that meant lunchboxes, Milton bottles, and ink-stained freedom.
+      </p>
+      <button class="bell-btn" id="bellBtn" onclick="ringSchoolBell()">🔔 Ring Recess Bell (Tan-Tan-Tan!)</button>
     </div>
 
     <!-- Cartoon: The Analog Classroom -->
@@ -306,25 +342,25 @@
         <div class="comic-panel">
           <span class="panel-tag">Front Bench</span>
           <div class="comic-emoji">👩‍🏫 📖</div>
-          <div class="comic-caption">Teacher reading page 84 out of a 400-page textbook. Chalk dust flying in the afternoon sunray.</div>
+          <div class="comic-caption">Teacher reading page 84 out of a 400-page textbook. Chalk dust floating in the afternoon light.</div>
         </div>
         <div class="comic-panel">
           <span class="panel-tag">Middle Bench</span>
           <div class="comic-emoji">🎒 🍼</div>
-          <div class="comic-caption">Refilling the red Milton insulated bottle with lukewarm water from the school tap.</div>
+          <div class="comic-caption">Refilling the red Milton insulated bottle with lukewarm water from the outdoor iron tap.</div>
         </div>
         <div class="comic-panel" style="background: #f0f7ff;">
           <span class="panel-tag">Last Bench</span>
           <div class="comic-emoji">🤫 📝</div>
-          <div class="comic-caption">Fierce 4-player game of Raja Mantri Chor Sipahi behind an upright geometry box.</div>
+          <div class="comic-caption">A fierce 4-player game of Raja Mantri Chor Sipahi behind an upright geometry box.</div>
         </div>
       </div>
     </div>
 
-    <!-- Interactive Mini Toy: Raja Mantri Chits -->
+    <!-- Interactive Raja Mantri Chits -->
     <div class="chit-game-box">
       <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">Folded Chit Picker</h3>
-      <p style="font-size: 0.9rem; margin: 0 0 12px 0;">Tap a chit to unfold your fate:</p>
+      <p style="font-size: 0.9rem; margin: 0 0 12px 0;">Tap any chit to unfold your score:</p>
       <div class="chits-grid">
         <button class="chit-btn" onclick="revealChit(this, '👑 Raja (1000 pts)')">Chit #1</button>
         <button class="chit-btn" onclick="revealChit(this, '🕵️ Mantri (800 pts)')">Chit #2</button>
@@ -341,10 +377,10 @@
         Before tablets, smartphones, and app stores, the greatest gaming console in the world was the back page of an unruled register notebook. Armed with only a blue ballpoint Reynolds 045 or a leaky Camlin fountain pen, we built entire multiplayer ecosystems right under the teacher's nose.
       </p>
       <ul class="game-list">
-        <li><strong>Raja Mantri Chor Sipahi:</strong> Four torn bits of square paper, folded tight and tossed into the air. The thrill of Mantri squinting across the wooden bench to guess who was the Chor!</li>
+        <li><strong>Raja Mantri Chor Sipahi:</strong> Four torn bits of square paper, folded tight and tossed into the air. The suspense of Mantri squinting across the wooden bench to guess who was the Chor!</li>
         <li><strong>Dots &amp; Boxes (Houses):</strong> A grid of pen dots where one careless move handed your benchmate a cascade of 8 closed boxes labeled with their initial.</li>
         <li><strong>Red, Blue, Yellow, Green (Origami Fortune Teller):</strong> Sliding your fingers into paper cones: <em>"Which color do you want? How many times?"</em></li>
-        <li><strong>Name, Place, Animal, Thing:</strong> The mad scramble to invent an animal starting with the letter "Q" or "X" before someone yelled *STOP!*</li>
+        <li><strong>Name, Place, Animal, Thing:</strong> The mad scramble to invent an animal starting with the letter "Q" or "X" before someone yelled <em>STOP!</em></li>
         <li><strong>FLAMES:</strong> Calculating the secret romantic fate between you and your crush on the inner cover of a Hindi notebook.</li>
       </ul>
     </section>
@@ -352,17 +388,15 @@
     <!-- Interactive Quiz -->
     <section>
       <h2>🕹️ Paper Nostalgia Quiz</h2>
-      <div class="quiz-card">
-        <div class="quiz-box">
-          <p><strong>Clue:</strong> In the game of <em>Raja Mantri Chor Sipahi</em>, which score was traditionally assigned to the <strong>Mantri</strong>?</p>
-          <div class="quiz-options">
-            <button class="quiz-btn" onclick="checkQuiz(false, this)">A) 1000 points</button>
-            <button class="quiz-btn" onclick="checkQuiz(true, this)">B) 800 points</button>
-            <button class="quiz-btn" onclick="checkQuiz(false, this)">C) 500 points</button>
-            <button class="quiz-btn" onclick="checkQuiz(false, this)">D) 100 points</button>
-          </div>
-          <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-box">
+        <p><strong>Clue:</strong> In the game of <em>Raja Mantri Chor Sipahi</em>, which score was traditionally assigned to the <strong>Mantri</strong>?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz(false, this)">A) 1000 points</button>
+          <button class="quiz-btn" onclick="checkQuiz(true, this)">B) 800 points</button>
+          <button class="quiz-btn" onclick="checkQuiz(false, this)">C) 500 points</button>
+          <button class="quiz-btn" onclick="checkQuiz(false, this)">D) 50 points</button>
         </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
       </div>
     </section>
 
@@ -385,15 +419,66 @@
   </div>
 
   <script>
-    // Chit reveal logic
+    // --- Brass Recess Bell Synthesizer (Web Audio API) ---
+    let bellCtx = null;
+    let bellInterval = null;
+    let strikeCount = 0;
+
+    function ringSchoolBell() {
+      const btn = document.getElementById('bellBtn');
+      if (bellInterval) return; // Prevent overlapping triggers
+
+      if (!bellCtx) {
+        bellCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      strikeCount = 0;
+      btn.innerText = "🔊 Ringing Recess Bell...";
+
+      // Strikes 6 rhythmic pulses (Tan... Tan... Tan...)
+      bellInterval = setInterval(() => {
+        strikeBell(bellCtx);
+        strikeCount++;
+        if (strikeCount >= 6) {
+          clearInterval(bellInterval);
+          bellInterval = null;
+          setTimeout(() => {
+            btn.innerText = "🔔 Ring Recess Bell (Tan-Tan-Tan!)";
+          }, 1200);
+        }
+      }, 420);
+    }
+
+    function strikeBell(ctx) {
+      // Overtones tuned to mimic a heavy Indian school brass gong
+      const freqs = [784, 1175, 1568];
+      freqs.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = idx === 0 ? 'triangle' : 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+
+        gain.gain.setValueAtTime(0.25 / (idx + 1), ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.2);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 1.2);
+      });
+    }
+
+    // --- Folded Chit Logic ---
     function revealChit(btn, role) {
       btn.innerText = role;
       btn.style.borderColor = "#1d707f";
       btn.style.background = "#eef7f8";
-      document.getElementById('chitResult').innerText = "You picked: " + role;
+      document.getElementById('chitResult').innerText = "You unfolded: " + role;
     }
 
-    // Quiz logic
+    // --- Quiz Logic ---
     function checkQuiz(isCorrect, btn) {
       const fb = document.getElementById('quizFeedback');
       document.querySelectorAll('.quiz-btn').forEach(b => {
