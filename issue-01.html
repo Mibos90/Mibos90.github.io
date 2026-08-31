@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 90s Indian Kid | Weekly Rewind</title>
+  <style>
+    :root {
+      --paper: #faf6ee;
+      --card-bg: #ffffff;
+      --retro-orange: #d44d22;
+      --retro-teal: #1d707f;
+      --retro-wood: #5a3825;
+      --retro-lace: #f3efe6;
+      --border-soft: #e3d9cc;
+      --text: #2c2523;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Trebuchet MS", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--paper);
+      margin: 0;
+      padding: 16px;
+    }
+
+    /* We are removing the DD Color Bar. The collage itself is colorful. */
+
+    .container {
+      max-width: 720px;
+      margin: 20px auto; /* Slightly less top margin without the color bar */
+      background: var(--card-bg);
+      padding: 24px 20px; /* Reduced padding slightly for better image focus */
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden; /* Important for the full-width image */
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0 0 6px 0;
+      color: var(--retro-orange);
+      font-size: 2.3rem;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 0;
+      color: #6a625a;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--retro-teal);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    /* --- CREATIVE INTEGRATION OF YOUR IMAGE --- */
+    .collage-wrapper {
+      margin: -24px -20px 30px -20px; /* Full-width image using negative margins */
+      position: relative;
+    }
+
+    .retro-collage {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* We use a mask-image to create a creative, ragged, distressed edge 
+         on the bottom, blending it into the page paper. 
+         This is a very advanced retro trick! We define the edge in SVG/gradient. */
+      -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      
+      /* If your browser doesn't support mask-image, we use a simple distressed border. */
+      border-bottom: 15px solid var(--paper);
+      box-sizing: border-box;
+    }
+
+    /* Lace Cloth is now draped only underneath the image and is centered,
+       making it look like a doily resting on the table below the collage. */
+    .collage-doily {
+      width: 60%;
+      max-width: 300px;
+      height: 10px;
+      background: repeating-linear-gradient(45deg, #f3efe6, #f3efe6 5px, #e8e2d4 5px, #e8e2d4 10px);
+      border-radius: 0 0 10px 10px;
+      border-bottom: 2px dashed #b8ad9c;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.03);
+      margin: -20px auto 0 auto; /* Negative margin pulls it slightly under the image */
+      position: relative;
+      z-index: 10;
+    }
+
+    /* --- CARTOON / COMIC STRIP CORNER --- */
+    /* Same as before, now below the collage */
+    .comic-section {
+      background: #fffdf9;
+      border: 2px solid #2d2621;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 32px 0;
+      box-shadow: 4px 4px 0 #2d2621;
+    }
+
+    .comic-header {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--retro-orange);
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #d4c5b1;
+      padding-bottom: 6px;
+    }
+
+    .comic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .comic-panel {
+      border: 2px solid #333;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+      text-align: center;
+      position: relative;
+    }
+
+    .panel-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: #eee;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+
+    .comic-emoji {
+      font-size: 2.2rem;
+      margin: 8px 0;
+    }
+
+    .comic-caption {
+      font-size: 0.85rem;
+      line-height: 1.35;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* --- CASSETTE 2-IN-1 PLAYER --- */
+    /* Updated styling for less boxy feel */
+    .cassette-deck {
+      background: #252422;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      border: 3px solid #3b3935;
+      color: #fff;
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .cassette-label {
+      background: #fdfbf7;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 4px;
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-top: 4px solid var(--retro-orange);
+      margin-bottom: 12px;
+    }
+
+    .tape-reels {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin: 10px 0 16px 0;
+    }
+
+    .reel {
+      width: 44px;
+      height: 44px;
+      background: #444;
+      border-radius: 50%;
+      border: 4px dashed #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reel-hole {
+      width: 14px;
+      height: 14px;
+      background: #252422;
+      border-radius: 50%;
+    }
+
+    .spinning {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    .play-btn {
+      background: var(--retro-orange);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    /* Sections, Quiz & Letter */
+    section { margin-bottom: 30px; }
+    h2 { color: var(--retro-teal); font-size: 1.35rem; margin-bottom: 12px; }
+
+    .quiz-box {
+      background: #fdf8ed;
+      border: 2px solid #e5b95a;
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .quiz-btn {
+      background: #fff;
+      border: 1px solid #d4c5b1;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .quiz-feedback {
+      font-weight: bold;
+      margin-top: 10px;
+      min-height: 22px;
+    }
+
+    .letter-card {
+      background: #f1f8f9;
+      border-left: 5px solid var(--retro-teal);
+      padding: 18px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #887e74;
+      border-top: 1px solid var(--border-soft);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>The 90s Indian Kid</h1>
+      <p>A weekly rewind into the golden age of CRT, cassettes, and curfews.</p>
+      <span class="badge">Issue #01 • August 2026 Edition</span>
+    </header>
+
+    <!-- CREATIVE IMAGE INTEGRATION -->
+    <div class="collage-wrapper">
+      <!-- We load your image file HERE -->
+      <img src="image_0.png" alt="A lively collage of 90s Indian memories" class="retro-collage">
+      <!-- The lace doily is now centered underneath -->
+      <div class="collage-doily"></div>
+    </div>
+
+    <!-- The 90s Life Cartoon Corner (Unchanged) -->
+    <div class="comic-section">
+      <div class="comic-header">
+        <span>Sunday Comic: The Chitrahaar Tragedy</span>
+        <span>Ep. 01</span>
+      </div>
+      <div class="comic-grid">
+        <div class="comic-panel">
+          <span class="panel-tag">7:55 PM</span>
+          <div class="comic-emoji">📺 ⏳</div>
+          <div class="comic-caption">Waiting whole week through 4 boring B&amp;W songs just to get 1 colorful 90s track.</div>
+        </div>
+        <div class="comic-panel">
+          <span class="panel-tag">8:14 PM</span>
+          <div class="comic-emoji">🤩 🎶</div>
+          <div class="comic-caption">Your all-time favorite song's guitar intro finally begins to play!</div>
+        </div>
+        <div class="comic-panel" style="background: #fff0f0;">
+          <span class="panel-tag">8:15 PM</span>
+          <div class="comic-emoji">⚡ 🕯️ 😭</div>
+          <div class="comic-caption">*CUT!* Total power blackout. The inverter screams. Mom brings out the candle.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive 2-in-1 Stereo Deck (Unchanged, lace removed from top) -->
+    <div class="cassette-deck">
+      <div class="cassette-label">TDK D-90 • Vividh Bharati Jingles</div>
+      <div class="tape-reels">
+        <div class="reel" id="leftReel"><div class="reel-hole"></div></div>
+        <div class="reel" id="rightReel"><div class="reel-hole"></div></div>
+      </div>
+      <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶ Press Play on Deck</button>
+    </div>
+
+    <!-- Feature Article -->
+    <section>
+      <h2>📻 The Art of the Hexagonal Pencil &amp; Magnetic Tape</h2>
+      <p>
+        Before instant cloud streaming, middle-class music curation required surgical discipline. You sat cross-legged next to the stereo deck, fingers resting on the plastic <strong>[REC]</strong> and <strong>[PLAY]</strong> switches. You prayed the radio jockey wouldn’t talk over the opening synthesizer chords.
+      </p>
+      <p>
+        And when the player malfunctioned and chewed up the ribbon into a hopeless black knot? You didn't replace it. You found a hexagonal Natraj pencil, slotted it into the tape sprocket, and hand-cranked the reel back into shape with total concentration.
+      </p>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section>
+      <h2>🕹️ Sunday Nostalgia Quiz</h2>
+      <div class="quiz-box">
+        <p><strong>Clue:</strong> Which red-and-white packed treat let 90s kids pretend to be Bollywood movie stars without any actual smoke?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">A) Poppins</button>
+          <button class="quiz-btn" onclick="checkAnswer(true, this)">B) Phantom Sweet Cigarettes</button>
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">C) Mango Mood</button>
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">D) Big Babol</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </div>
+    </section>
+
+    <!-- Inland Letter -->
+    <section>
+      <h2>✉️ Inland Letter: 2026 to the 90s Kid</h2>
+      <div class="letter-card">
+        <p>
+          "Dear 10-year-old me sitting on the living room rug:
+        </p>
+        <p>
+          In the future, you will hold a glass slab that gives you every song, movie, and video game on earth instantly. But you will miss the anticipation. You will miss running outside the minute the evening streetlights turned on, shouting across your friend’s balcony, and drinking chilled water straight from the red clay <em>matka</em>. Don’t rush growing up."
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built with pure 90s nostalgia • Updated weekly • No subscriptions required.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Retro Chime Synthesizer
+    let audioCtx = null;
+    let isPlaying = false;
+    let noteTimer = null;
+
+    const notes = [
+      { f: 523.25, d: 300 },
+      { f: 587.33, d: 300 },
+      { f: 659.25, d: 300 },
+      { f: 783.99, d: 450 },
+      { f: 659.25, d: 250 },
+      { f: 783.99, d: 600 }
+    ];
+
+    function toggleAudio() {
+      const btn = document.getElementById('playBtn');
+      const left = document.getElementById('leftReel');
+      const right = document.getElementById('rightReel');
+
+      if (isPlaying) {
+        isPlaying = false;
+        clearTimeout(noteTimer);
+        btn.innerText = "▶ Press Play on Deck";
+        left.classList.remove('spinning');
+        right.classList.remove('spinning');
+        return;
+      }
+
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      isPlaying = true;
+      btn.innerText = "⏹ Eject Tape";
+      left.classList.add('spinning');
+      right.classList.add('spinning');
+
+      let idx = 0;
+      function playStep() {
+        if (!isPlaying) return;
+        const cur = notes[idx];
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(cur.f, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (cur.d / 1000));
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + (cur.d / 1000));
+
+        idx = (idx + 1) % notes.length;
+        noteTimer = setTimeout(playStep, cur.d + 70);
+      }
+      playStep();
+    }
+
+    function checkAnswer(isCorrect, btn) {
+      const fb = document.getElementById('quizFeedback');
+      document.querySelectorAll('.quiz-btn').forEach(b => {
+        b.style.borderColor = "#d4c5b1";
+        b.style.background = "#fff";
+      });
+
+      if (isCorrect) {
+        btn.style.background = "#e8f5e9";
+        btn.style.borderColor = "#4caf50";
+        fb.style.color = "#2e7d32";
+        fb.innerText = "✨ Spot on! The iconic chalky, sugary Phantom stick we all held like a cigarette!";
+      } else {
+        btn.style.background = "#ffebee";
+        btn.style.borderColor = "#f44336";
+        fb.style.color = "#c62828";
+        fb.innerText = "Oops, not that one! Think of the minty candy stick in the red packet...";
+      }
+    }
+  </script>
+</body>
+</html>
