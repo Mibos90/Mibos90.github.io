@@ -24,7 +24,6 @@
       padding: 16px;
     }
 
-    /* Archive Navigation Bar */
     .issue-nav {
       max-width: 720px;
       margin: 0 auto 16px auto;
@@ -91,7 +90,6 @@
       text-transform: uppercase;
     }
 
-    /* Image Wrapper */
     .collage-wrapper {
       margin: -24px -20px 24px -20px;
       position: relative;
@@ -106,7 +104,6 @@
       border-bottom: 12px solid var(--paper);
     }
 
-    /* Sound Bell Box */
     .bell-box {
       text-align: center;
       margin: 25px 0;
@@ -125,14 +122,145 @@
       font-weight: bold;
       cursor: pointer;
       font-size: 0.95rem;
-      transition: transform 0.1s ease;
     }
 
-    .bell-btn:active {
-      transform: scale(0.97);
+    /* --- FLAMES CALCULATOR NOTEBOOK STYLE --- */
+    .flames-box {
+      background: #fbfbf4;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 22px 18px;
+      margin: 30px 0;
+      box-shadow: 4px 4px 0 #333;
+      text-align: center;
+      background-image: repeating-linear-gradient(#fbfbf4 0px, #fbfbf4 24px, #e1e8ed 25px);
+      position: relative;
     }
 
-    /* Classroom Comic Strip */
+    .flames-letters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      font-family: monospace;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin: 14px 0;
+    }
+
+    .f-letter {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #444;
+      border-radius: 6px;
+      background: #fff;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .f-letter.evaluating {
+      border-color: #e67e22;
+      background: #fff3e0;
+      transform: translateY(-4px);
+    }
+
+    .f-letter.struck {
+      text-decoration: line-through;
+      color: #bbb;
+      background: #f1f1f1;
+      border-color: #ddd;
+      transform: scale(0.9);
+    }
+
+    .f-letter.winner {
+      background: #ffeaa7;
+      color: #d63031;
+      border-color: #d63031;
+      transform: scale(1.2);
+      box-shadow: 0 0 12px rgba(214, 48, 49, 0.4);
+    }
+
+    .flames-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 320px;
+      margin: 16px auto;
+    }
+
+    .flames-input {
+      padding: 10px 14px;
+      border: 2px solid #555;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      font-family: monospace;
+      font-weight: bold;
+      background: #fff;
+      outline: none;
+    }
+
+    .flames-btn {
+      background: var(--retro-teal);
+      color: #fff;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #124750;
+      transition: all 0.1s;
+    }
+
+    .flames-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #124750;
+    }
+
+    .flames-btn:disabled {
+      background: #8faab0;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .flames-result {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Animated Visual Result Popups */
+    .icon-anim {
+      font-size: 3rem;
+      display: inline-block;
+      margin-bottom: 6px;
+      animation: popIn 0.5s ease-out;
+    }
+
+    .heart-beat {
+      animation: beat 0.9s infinite alternate ease-in-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.3); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes beat {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.25); }
+    }
+
+    /* Classroom Comic */
     .comic-section {
       background: #fffdf9;
       border: 2px solid #2d2621;
@@ -182,19 +310,10 @@
       align-self: flex-start;
     }
 
-    .comic-emoji {
-      font-size: 2rem;
-      margin: 6px 0;
-    }
+    .comic-emoji { font-size: 2rem; margin: 6px 0; }
+    .comic-caption { font-size: 0.85rem; line-height: 1.35; font-weight: 600; color: #333; }
 
-    .comic-caption {
-      font-size: 0.85rem;
-      line-height: 1.35;
-      font-weight: 600;
-      color: #333;
-    }
-
-    /* Interactive Raja Mantri Chit Board */
+    /* Raja Mantri Chits */
     .chit-game-box {
       background: #fdf8ee;
       border: 2px solid var(--retro-gold);
@@ -234,7 +353,6 @@
       background: #fff;
     }
 
-    /* Content Sections */
     section { margin-bottom: 28px; }
     h2 { color: var(--retro-teal); font-size: 1.3rem; margin-bottom: 12px; }
 
@@ -249,11 +367,8 @@
       border-bottom: 1px dotted var(--border-soft);
     }
 
-    .game-list strong {
-      color: var(--retro-orange);
-    }
+    .game-list strong { color: var(--retro-orange); }
 
-    /* Quiz */
     .quiz-box {
       background: #fdf8ed;
       border: 2px solid #e5b95a;
@@ -261,11 +376,7 @@
       padding: 18px;
     }
 
-    .quiz-options {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-    }
+    .quiz-options { display: grid; gap: 8px; margin-top: 12px; }
 
     .quiz-btn {
       background: #fff;
@@ -277,11 +388,7 @@
       font-size: 0.95rem;
     }
 
-    .quiz-feedback {
-      font-weight: bold;
-      margin-top: 10px;
-      min-height: 22px;
-    }
+    .quiz-feedback { font-weight: bold; margin-top: 10px; min-height: 22px; }
 
     .letter-card {
       background: #f1f8f9;
@@ -303,7 +410,6 @@
 </head>
 <body>
 
-  <!-- Archive Bar -->
   <div class="issue-nav">
     <a href="issue-01.html">⏮ Issue #01: Tapes &amp; Curfews</a>
     <span>Issue #02 (Current)</span>
@@ -313,26 +419,50 @@
   <div class="container">
     <header>
       <h1>The 90s Indian Kid</h1>
-      <p>A weekly rewind into the golden age of ruled pages, ink pens, and recess whistles.</p>
+      <p>A weekly rewind into ruled notebooks, ink pens, and recess secrets.</p>
       <span class="badge">Issue #02 • Classroom Games Edition</span>
     </header>
 
-    <!-- Header Image Collage (Falls back safely to image_0.png if games-collage.png is not yet uploaded) -->
     <div class="collage-wrapper">
       <img src="games-collage.png" onerror="this.src='image_0.png'" alt="90s Indian Classroom Paper Games" class="retro-collage">
     </div>
 
-    <!-- Interactive Recess School Bell (Method 1: Synth Audio) -->
+    <!-- Recess School Bell -->
     <div class="bell-box">
       <div style="font-size: 2.2rem; margin-bottom: 4px;">🔔</div>
       <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">Period 6: The Recess Bell</h3>
       <p style="font-size: 0.85rem; margin: 0 0 14px 0; color: #666;">
-        That heavy brass gong hanging in the corridor that meant lunchboxes, Milton bottles, and ink-stained freedom.
+        That heavy brass gong hanging in the corridor that meant lunchboxes and freedom.
       </p>
       <button class="bell-btn" id="bellBtn" onclick="ringSchoolBell()">🔔 Ring Recess Bell (Tan-Tan-Tan!)</button>
     </div>
 
-    <!-- Cartoon: The Analog Classroom -->
+    <!-- FLAMES CALCULATOR MINI GAME WITH PEHLA NASHA SOUND -->
+    <div class="flames-box">
+      <h3 style="margin: 0 0 4px 0; color: var(--retro-orange);">🔥 The Back-Page FLAMES Calculator</h3>
+      <p style="font-size: 0.85rem; color: #555; margin: 0 0 12px 0;">
+        Enter two names. When you hit calculate, listen for that 90s romance tune while fate decides!
+      </p>
+
+      <div class="flames-letters">
+        <div class="f-letter" id="fl-F">F</div>
+        <div class="f-letter" id="fl-L">L</div>
+        <div class="f-letter" id="fl-A">A</div>
+        <div class="f-letter" id="fl-M">M</div>
+        <div class="f-letter" id="fl-E">E</div>
+        <div class="f-letter" id="fl-S">S</div>
+      </div>
+
+      <div class="flames-inputs">
+        <input type="text" id="name1" class="flames-input" placeholder="Your Name..." maxlength="20">
+        <input type="text" id="name2" class="flames-input" placeholder="Crush's Name..." maxlength="20">
+        <button class="flames-btn" id="flamesSubmitBtn" onclick="startFlamesWithMusic()">✨ Calculate Fate</button>
+      </div>
+
+      <div class="flames-result" id="flamesOutcome"></div>
+    </div>
+
+    <!-- Comic Strip -->
     <div class="comic-section">
       <div class="comic-header">
         <span>Sunday Comic: Period 6 • Social Studies</span>
@@ -357,7 +487,7 @@
       </div>
     </div>
 
-    <!-- Interactive Raja Mantri Chits -->
+    <!-- Folded Chit Mini Game -->
     <div class="chit-game-box">
       <h3 style="margin: 0 0 6px 0; color: var(--retro-orange);">Folded Chit Picker</h3>
       <p style="font-size: 0.9rem; margin: 0 0 12px 0;">Tap any chit to unfold your score:</p>
@@ -370,7 +500,7 @@
       <div id="chitResult" style="font-weight: bold; min-height: 24px; color: var(--retro-teal);"></div>
     </div>
 
-    <!-- Story Feature -->
+    <!-- Article -->
     <section>
       <h2>✏️ The Last Page of the Rough Notebook</h2>
       <p>
@@ -379,13 +509,12 @@
       <ul class="game-list">
         <li><strong>Raja Mantri Chor Sipahi:</strong> Four torn bits of square paper, folded tight and tossed into the air. The suspense of Mantri squinting across the wooden bench to guess who was the Chor!</li>
         <li><strong>Dots &amp; Boxes (Houses):</strong> A grid of pen dots where one careless move handed your benchmate a cascade of 8 closed boxes labeled with their initial.</li>
-        <li><strong>Red, Blue, Yellow, Green (Origami Fortune Teller):</strong> Sliding your fingers into paper cones: <em>"Which color do you want? How many times?"</em></li>
-        <li><strong>Name, Place, Animal, Thing:</strong> The mad scramble to invent an animal starting with the letter "Q" or "X" before someone yelled <em>STOP!</em></li>
         <li><strong>FLAMES:</strong> Calculating the secret romantic fate between you and your crush on the inner cover of a Hindi notebook.</li>
+        <li><strong>Name, Place, Animal, Thing:</strong> The mad scramble to invent an animal starting with "Q" or "X" before someone yelled <em>STOP!</em></li>
       </ul>
     </section>
 
-    <!-- Interactive Quiz -->
+    <!-- Quiz -->
     <section>
       <h2>🕹️ Paper Nostalgia Quiz</h2>
       <div class="quiz-box">
@@ -400,7 +529,7 @@
       </div>
     </section>
 
-    <!-- Letter From 2026 -->
+    <!-- Letter -->
     <section>
       <h2>✉️ Letter to the Last-Bencher</h2>
       <div class="letter-card">
@@ -408,7 +537,7 @@
           "Dear kid scribbling dots on page 120 during Chemistry:
         </p>
         <p>
-          Thirty years from now, you will own pocket computers capable of rendering entire 3D virtual worlds at 120 frames a second. Yet, none of them will match the pure, quiet tension of folding four paper chits with your three best friends on a rainy Thursday afternoon. Don't worry if the ink stained your fingers today. That ink will outlast all of this."
+          Thirty years from now, you will own pocket computers capable of rendering entire 3D virtual worlds at 120 frames a second. Yet, none of them will match the pure, quiet tension of folding four paper chits with your three best friends on a rainy Thursday afternoon. That ink will outlast all of this."
         </p>
       </div>
     </section>
@@ -419,14 +548,178 @@
   </div>
 
   <script>
-    // --- Brass Recess Bell Synthesizer (Web Audio API) ---
+    // --- PEHLA NASHA NOSTALGIA SYNTHESIZER ---
+    let loveAudioCtx = null;
+    let loveMelodyTimer = null;
+
+    // Classic romance chord progression (C - F - G - Am)
+    const pehlaNashaNotes = [
+      { f: 523.25, d: 350 }, // C5
+      { f: 659.25, d: 350 }, // E5
+      { f: 783.99, d: 500 }, // G5
+      { f: 659.25, d: 300 }, // E5
+      { f: 880.00, d: 600 }, // A5 (Pehla...)
+      { f: 783.99, d: 700 }, // G5 (...Nasha)
+      { f: 659.25, d: 400 }, // E5
+      { f: 587.33, d: 500 }, // D5 (Pehla...)
+      { f: 523.25, d: 800 }  // C5 (...Khumaar)
+    ];
+
+    function playLoveSynth() {
+      if (!loveAudioCtx) {
+        loveAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      let noteIdx = 0;
+      function playStep() {
+        if (noteIdx >= pehlaNashaNotes.length) return;
+        const cur = pehlaNashaNotes[noteIdx];
+
+        const osc = loveAudioCtx.createOscillator();
+        const gain = loveAudioCtx.createGain();
+
+        // Warm 90s electric piano vibe
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(cur.f, loveAudioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.22, loveAudioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, loveAudioCtx.currentTime + (cur.d / 1000));
+
+        osc.connect(gain);
+        gain.connect(loveAudioCtx.destination);
+
+        osc.start();
+        osc.stop(loveAudioCtx.currentTime + (cur.d / 1000));
+
+        noteIdx++;
+        loveMelodyTimer = setTimeout(playStep, cur.d + 50);
+      }
+      playStep();
+    }
+
+    // --- INTERACTIVE FLAMES DRAMATIC CALCULATION ---
+    function startFlamesWithMusic() {
+      const raw1 = document.getElementById('name1').value.trim().toLowerCase().replace(/\s+/g, '');
+      const raw2 = document.getElementById('name2').value.trim().toLowerCase().replace(/\s+/g, '');
+      const outcome = document.getElementById('flamesOutcome');
+      const submitBtn = document.getElementById('flamesSubmitBtn');
+
+      // Reset letters
+      ['F', 'L', 'A', 'M', 'E', 'S'].forEach(l => {
+        const el = document.getElementById('fl-' + l);
+        el.className = 'f-letter';
+      });
+
+      if (!raw1 || !raw2) {
+        outcome.innerHTML = "<span style='color: #c0392b;'>⚠️ Enter both names first!</span>";
+        return;
+      }
+
+      // Play the iconic 90s love theme
+      playLoveSynth();
+
+      submitBtn.disabled = true;
+      outcome.innerHTML = "<span style='color: #e67e22;'>🎶 Striking out common letters...</span>";
+
+      // Compute strike remainder
+      let a1 = raw1.split('');
+      let a2 = raw2.split('');
+
+      for (let i = 0; i < a1.length; i++) {
+        const matchIdx = a2.indexOf(a1[i]);
+        if (matchIdx !== -1) {
+          a1.splice(i, 1);
+          a2.splice(matchIdx, 1);
+          i--;
+        }
+      }
+
+      const remainderCount = a1.length + a2.length;
+
+      if (remainderCount === 0) {
+        setTimeout(() => {
+          outcome.innerHTML = `
+            <div class="icon-anim heart-beat">💖💫</div>
+            <div style="color: #d63031;">Soulmates! The names cancel out into pure magic!</div>`;
+          submitBtn.disabled = false;
+        }, 1500);
+        return;
+      }
+
+      // Step-by-step elimination animation
+      let letters = ['F', 'L', 'A', 'M', 'E', 'S'];
+      let ptr = 0;
+      let step = 0;
+
+      function eliminateNext() {
+        if (letters.length > 1) {
+          ptr = (ptr + remainderCount - 1) % letters.length;
+          const struck = letters.splice(ptr, 1)[0];
+          document.getElementById('fl-' + struck).classList.add('struck');
+
+          step++;
+          setTimeout(eliminateNext, 750); // Dramatic rhythm synced to melody
+        } else {
+          // Final Winner Reveal
+          const winner = letters[0];
+          const winEl = document.getElementById('fl-' + winner);
+          winEl.classList.add('winner');
+          submitBtn.disabled = false;
+
+          const results = {
+            'F': {
+              icon: '🤝 🎗️',
+              text: 'Friends Forever!',
+              sub: 'Middle bench partners for life. Sharing samosas and school gossip.'
+            },
+            'L': {
+              icon: '💖 🌹',
+              text: 'Lovers!',
+              sub: 'Pehla Nasha plays in slow motion! Eye contact during morning assembly.'
+            },
+            'A': {
+              icon: '🥰 ✨',
+              text: 'Affection!',
+              sub: 'Secretly saving the good Camlin compass and scented eraser for them.'
+            },
+            'M': {
+              icon: '💍 💒',
+              text: 'Marriage!',
+              sub: 'Band, Baaja, Baaraat! 90s slow romance turned into lifetime companionship.'
+            },
+            'E': {
+              icon: '🥊 ⚡',
+              text: 'Enemies!',
+              sub: 'KATTI! Drawing a permanent chalk line down the middle of the desk.'
+            },
+            'S': {
+              icon: '🪢 👫',
+              text: 'Siblings!',
+              sub: 'Tying the golden sparkly Rakhi in homeroom period. Total safe zone!'
+            }
+          };
+
+          const res = results[winner];
+          const isLove = (winner === 'L' || winner === 'M');
+          outcome.innerHTML = `
+            <div class="icon-anim ${isLove ? 'heart-beat' : ''}">${res.icon}</div>
+            <div style="color: var(--retro-orange); font-size: 1.25rem;">${res.text}</div>
+            <div style="font-size: 0.85rem; color: #555; font-style: italic; margin-top: 4px;">"${res.sub}"</div>
+          `;
+        }
+      }
+
+      setTimeout(eliminateNext, 800);
+    }
+
+    // --- Recess Bell Synthesizer ---
     let bellCtx = null;
     let bellInterval = null;
     let strikeCount = 0;
 
     function ringSchoolBell() {
       const btn = document.getElementById('bellBtn');
-      if (bellInterval) return; // Prevent overlapping triggers
+      if (bellInterval) return;
 
       if (!bellCtx) {
         bellCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -435,7 +728,6 @@
       strikeCount = 0;
       btn.innerText = "🔊 Ringing Recess Bell...";
 
-      // Strikes 6 rhythmic pulses (Tan... Tan... Tan...)
       bellInterval = setInterval(() => {
         strikeBell(bellCtx);
         strikeCount++;
@@ -450,7 +742,6 @@
     }
 
     function strikeBell(ctx) {
-      // Overtones tuned to mimic a heavy Indian school brass gong
       const freqs = [784, 1175, 1568];
       freqs.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
@@ -470,7 +761,7 @@
       });
     }
 
-    // --- Folded Chit Logic ---
+    // --- Chit Picker Logic ---
     function revealChit(btn, role) {
       btn.innerText = role;
       btn.style.borderColor = "#1d707f";
