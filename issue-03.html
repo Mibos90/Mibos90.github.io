@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 90s Indian Kid | Issue #03: Board Exams & Brown Covers</title>
+  <style>
+    :root {
+      --paper: #faf6ee;
+      --card-bg: #ffffff;
+      --retro-orange: #d44d22;
+      --retro-teal: #1d707f;
+      --retro-gold: #c98a2c;
+      --border-soft: #e3d9cc;
+      --text: #2c2523;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Trebuchet MS", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--paper);
+      margin: 0;
+      padding: 16px;
+    }
+    .issue-nav {
+      max-width: 720px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #f0ebe1;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+    }
+    .issue-nav a { color: var(--retro-teal); text-decoration: none; }
+    .issue-nav a:hover { text-decoration: underline; }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 28px 22px;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    header {
+      text-align: center;
+      border-bottom: 2px dashed var(--border-soft);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    header h1 { margin: 0 0 6px 0; color: var(--retro-orange); font-size: 2.2rem; }
+    header p { margin: 0; color: #6a625a; font-size: 0.95rem; }
+    .badge {
+      display: inline-block;
+      background: var(--retro-teal);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .exam-pad-box {
+      background: #dfcfbe;
+      border: 4px solid #8c735d;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .pad-clip {
+      width: 120px;
+      height: 24px;
+      background: #7f8c8d;
+      border-radius: 4px 4px 0 0;
+      margin: -20px auto 14px auto;
+      border: 2px solid #555;
+    }
+    .hall-ticket {
+      background: #fff;
+      border: 1px dashed #777;
+      padding: 16px;
+      border-radius: 4px;
+      font-family: monospace;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .stamp-btn {
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 12px;
+      box-shadow: 0 3px 0 #782117;
+    }
+    .stamp-btn:active { transform: translateY(2px); box-shadow: none; }
+    .comic-section {
+      background: #fffdf9;
+      border: 2px solid #2d2621;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 28px 0;
+      box-shadow: 4px 4px 0 #2d2621;
+    }
+    .comic-header {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--retro-orange);
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #d4c5b1;
+      padding-bottom: 6px;
+    }
+    .comic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .comic-panel {
+      border: 2px solid #333;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 145px;
+      text-align: center;
+    }
+    .panel-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: #eee;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+    .comic-emoji { font-size: 2rem; margin: 6px 0; }
+    .comic-caption { font-size: 0.85rem; line-height: 1.35; font-weight: 600; color: #333; }
+    section { margin-bottom: 28px; }
+    h2 { color: var(--retro-teal); font-size: 1.3rem; margin-bottom: 12px; }
+    .quiz-box { background: #fdf8ed; border: 2px solid #e5b95a; border-radius: 8px; padding: 18px; }
+    .quiz-options { display: grid; gap: 8px; margin-top: 12px; }
+    .quiz-btn { background: #fff; border: 1px solid #d4c5b1; padding: 10px 14px; border-radius: 6px; text-align: left; cursor: pointer; }
+    .quiz-feedback { font-weight: bold; margin-top: 10px; min-height: 22px; }
+    .letter-card { background: #f1f8f9; border-left: 5px solid var(--retro-teal); padding: 18px; border-radius: 0 8px 8px 0; font-style: italic; }
+    footer { text-align: center; font-size: 0.85rem; color: #887e74; border-top: 1px solid var(--border-soft); padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <div class="issue-nav">
+    <a href="issue-02.html">⏮ Issue #02: Paper Games</a>
+    <span>Issue #03</span>
+    <a href="issue-04.html">Issue #04: Summer Holidays ⏭</a>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>The 90s Indian Kid</h1>
+      <p>A weekly rewind into brown paper bindings, Natraj sharpeners, and exam hall silence.</p>
+      <span class="badge">Issue #03 • Exam Season Special</span>
+    </header>
+
+    <div class="exam-pad-box">
+      <div class="pad-clip"></div>
+      <div class="hall-ticket">
+        <h4 style="margin:0 0 6px 0;">BOARD EXAM ROLL TICKET • 1998</h4>
+        <div>Roll No: <strong>948201</strong> • Class X-A</div>
+        <div id="stampResult" style="margin-top:10px; font-weight:bold; color:#c0392b; min-height:24px;">[PENDING EXAM HALL ENTRY]</div>
+      </div>
+      <button class="stamp-btn" onclick="stampHallTicket()">🖋️ STAMP HALL TICKET</button>
+    </div>
+
+    <div class="comic-section">
+      <div class="comic-header">
+        <span>Sunday Comic: Exam Morning Horrors</span>
+        <span>Ep. 03</span>
+      </div>
+      <div class="comic-grid">
+        <div class="comic-panel">
+          <span class="panel-tag">6:30 AM</span>
+          <div class="comic-emoji">🥣 🥄 🤢</div>
+          <div class="comic-caption">Mom making you eat compulsory dahi-cheeni for good luck before walking out the door.</div>
+        </div>
+        <div class="comic-panel">
+          <span class="panel-tag">9:20 AM</span>
+          <div class="comic-emoji">📐 📍 😨</div>
+          <div class="comic-caption">Opening the metal geometry box and realizing you have no idea what the sharp divider is actually for.</div>
+        </div>
+        <div class="comic-panel" style="background:#fff2f2;">
+          <span class="panel-tag">12:25 PM</span>
+          <div class="comic-emoji">🙋‍♂️ 📜 🚨</div>
+          <div class="comic-caption">That one topper yelling "Sir, extra supplementary sheet please!" with 5 minutes left.</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>📖 The Annual Ritual of Brown Paper &amp; Name Slips</h2>
+      <p>
+        Every academic year began not with textbooks, but with scissors, Fevicol, and massive rolls of brown wrapping paper spread across the living room carpet. Every single corner had to be tucked with hospital precision and taped down with cello-tape.
+      </p>
+      <p>
+        The crowning glory was the glossy label stuck on the bottom right: <em>Name, Class, Section, Roll No., Subject</em>. If you had the fancy labels with Sachin Tendulkar or He-Man on them, you were the uncrowned king of the front row.
+      </p>
+    </section>
+
+    <section>
+      <h2>🕹️ Exam Nostalgia Quiz</h2>
+      <div class="quiz-box">
+        <p><strong>Clue:</strong> Which iconic blue-and-white eraser claimed it could erase ballpoint pen ink, but only ended up tearing through the notebook paper?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkExamQuiz(false, this)">A) Apsara Non-Dust</button>
+          <button class="quiz-btn" onclick="checkExamQuiz(true, this)">B) The Dual-Tone Blue & Pink Eraser</button>
+          <button class="quiz-btn" onclick="checkExamQuiz(false, this)">C) Natraj Plasto</button>
+          <button class="quiz-btn" onclick="checkExamQuiz(false, this)">D) Scented Fruit Eraser</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>✉️ Letter to the Stressed 10th Grader</h2>
+      <div class="letter-card">
+        <p>
+          "Dear kid memorizing theorems at 11:30 PM under the table lamp:
+        </p>
+        <p>
+          You think this 3-hour paper will decide your entire universe. Twenty-five years from now, nobody will ask you about the Pythagoras theorem or the Battle of Panipat. You will remember the cold mango shake Mom brought to your desk, the post-exam freedom on the bicycle, and that glorious feeling of walking out of the last exam into two months of summer."
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built with pure 90s nostalgia • Issue #03 • Dedicated to brown-paper masters.</p>
+    </footer>
+  </div>
+
+  <script>
+    let stampCtx = null;
+    function stampHallTicket() {
+      if (!stampCtx) stampCtx = new (window.AudioContext || window.webkitAudioContext)();
+      
+      // Heavy rubber stamp / thud sound synthesis
+      const osc = stampCtx.createOscillator();
+      const gain = stampCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(140, stampCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(30, stampCtx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.3, stampCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, stampCtx.currentTime + 0.1);
+      osc.connect(gain);
+      gain.connect(stampCtx.destination);
+      osc.start();
+      osc.stop(stampCtx.currentTime + 0.1);
+
+      const verdicts = [
+        "VERIFIED • SEAT NO. 42 (UNDER CEILING FAN)",
+        "PASSED • PERMITTED TO CARRY REYNOLDS PEN",
+        "STAMPED • NO WRITING ON THE WOODEN DESK!"
+      ];
+      document.getElementById('stampResult').innerText = verdicts[Math.floor(Math.random() * verdicts.length)];
+    }
+
+    function checkExamQuiz(isCorrect, btn) {
+      const fb = document.getElementById('quizFeedback');
+      document.querySelectorAll('.quiz-btn').forEach(b => { b.style.background = "#fff"; });
+      if (isCorrect) {
+        btn.style.background = "#e8f5e9";
+        fb.style.color = "#2e7d32";
+        fb.innerText = "✨ Exactly! That rough blue half only created big holes in our answer sheets!";
+      } else {
+        btn.style.background = "#ffebee";
+        fb.style.color = "#c62828";
+        fb.innerText = "Think of that legendary two-sided eraser with the blue abrasive side!";
+      }
+    }
+  </script>
+</body>
+</html>
