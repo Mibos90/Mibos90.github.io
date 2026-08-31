@@ -5,141 +5,405 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The 90s Indian Kid | Weekly Rewind</title>
   <style>
-    /* Clean, retro-inspired aesthetic */
+    :root {
+      --retro-paper: #fbf7ee;
+      --retro-card: #ffffff;
+      --retro-orange: #d95327;
+      --retro-teal: #2a7b88;
+      --retro-gold: #e9b44c;
+      --text-main: #2b2623;
+      --border-color: #e4d7c5;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Trebuchet MS", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Trebuchet MS", sans-serif;
       line-height: 1.7;
-      color: #2b2b2b;
-      background-color: #fcf9f2;
+      color: var(--text-main);
+      background-color: var(--retro-paper);
       margin: 0;
-      padding: 20px;
+      padding: 16px;
     }
+
+    /* Doordarshan Color Test Banner on top */
+    .tv-test-bar {
+      height: 6px;
+      background: linear-gradient(90deg, 
+        #ffffff 0%, #ffff00 16.6%, #00ffff 33.3%, 
+        #00ff00 50%, #ff00ff 66.6%, #ff0000 83.3%, #0000ff 100%);
+      margin: -16px -16px 20px -16px;
+    }
+
     .container {
-      max-width: 680px;
-      margin: 40px auto;
-      background: #ffffff;
-      padding: 32px;
-      border-radius: 8px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-      border: 1px solid #ece4d8;
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--retro-card);
+      padding: 36px 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+      border: 1px solid var(--border-color);
     }
+
     header {
-      border-bottom: 2px solid #e27d60;
-      padding-bottom: 16px;
-      margin-bottom: 28px;
       text-align: center;
+      border-bottom: 2px dashed var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 30px;
     }
+
     header h1 {
-      margin: 0 0 6px 0;
-      font-size: 2rem;
-      color: #c34a2c;
+      font-size: 2.2rem;
+      color: var(--retro-orange);
+      margin: 0 0 8px 0;
       letter-spacing: -0.5px;
     }
+
     header p {
+      font-size: 1rem;
+      color: #6d635b;
       margin: 0;
-      font-size: 0.95rem;
-      color: #777;
     }
-    .issue-badge {
+
+    .badge {
       display: inline-block;
-      background: #e27d60;
+      background: var(--retro-teal);
       color: #fff;
       font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Interactive Cassette Box */
+    .cassette-box {
+      background: #232220;
+      color: #f7f7f7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 35px;
+      border: 3px solid #3c3a36;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+
+    .cassette-label {
+      background: #fdfbf7;
+      color: #222;
+      padding: 10px;
+      border-radius: 4px;
+      display: inline-block;
+      width: 80%;
+      border-top: 4px solid var(--retro-orange);
+      margin-bottom: 15px;
+      font-family: monospace;
+      font-size: 0.95rem;
       font-weight: bold;
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-top: 10px;
-      text-transform: uppercase;
     }
+
+    .tape-reels {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 10px 0 18px 0;
+    }
+
+    .reel {
+      width: 44px;
+      height: 44px;
+      background: #444;
+      border-radius: 50%;
+      border: 4px dashed #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reel-hole {
+      width: 14px;
+      height: 14px;
+      background: #232220;
+      border-radius: 50%;
+    }
+
+    .spinning {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .audio-btn {
+      background: var(--retro-orange);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #b53e16;
+    }
+
+    /* Sections & Typography */
     section {
-      margin-bottom: 32px;
+      margin-bottom: 35px;
     }
+
     h2 {
       font-size: 1.35rem;
-      color: #333;
-      border-left: 4px solid #e27d60;
-      padding-left: 10px;
+      color: var(--retro-teal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 14px;
     }
-    .quiz-box {
-      background: #faf3e0;
-      border: 1px dashed #d4a373;
-      padding: 16px 20px;
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #fcf6ea;
+      border: 2px solid var(--retro-gold);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .quiz-question {
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .quiz-btn {
+      background: #ffffff;
+      border: 1px solid #d4c5b1;
+      padding: 10px 14px;
       border-radius: 6px;
-    }
-    details summary {
+      text-align: left;
       cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover {
+      background: #f1ede4;
+      border-color: #b09e85;
+    }
+
+    .quiz-feedback {
       font-weight: bold;
-      color: #c34a2c;
-      margin-top: 10px;
+      min-height: 24px;
+      padding: 6px 0;
     }
-    .letter-box {
-      background: #fdfaf6;
-      border-left: 3px solid #85a392;
-      padding: 16px 20px;
-      font-style: italic;
-      color: #444;
+
+    /* Vintage Inland Letter */
+    .letter-card {
+      background: #f0f7f8;
+      border-left: 5px solid var(--retro-teal);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      position: relative;
     }
+
+    .postmark {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border: 2px dashed var(--retro-teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: var(--retro-teal);
+      text-align: center;
+      transform: rotate(-12deg);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
       font-size: 0.85rem;
-      color: #888;
-      border-top: 1px solid #eee;
+      color: #7b746d;
+      border-top: 1px solid var(--border-color);
       padding-top: 20px;
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
+  <div class="tv-test-bar"></div>
+
   <div class="container">
     <header>
       <h1>The 90s Indian Kid</h1>
-      <p>Memories, quirks, and life lessons from the dial-up generation.</p>
-      <span class="issue-badge">Issue #01 • Cassettes & Curfews</span>
+      <p>The weekly chronicle of landlines, cassette spools, and DD National curfews.</p>
+      <span class="badge">Issue #01 • August 2026 Edition</span>
     </header>
 
-    <!-- Main Feature Article -->
+    <!-- Retro Cassette Audio Player (No external media needed) -->
+    <div class="cassette-box">
+      <div class="cassette-label">Side A: Doordarshan Days (8-Bit Synth Theme)</div>
+      <div class="tape-reels">
+        <div class="reel" id="leftReel"><div class="reel-hole"></div></div>
+        <div class="reel" id="rightReel"><div class="reel-hole"></div></div>
+      </div>
+      <button class="audio-btn" id="playBtn" onclick="toggleTune()">▶ Play Nostalgia Synth</button>
+    </div>
+
+    <!-- Feature Article -->
     <section>
-      <h2>Weekly Feature: The Natraj Pencil & The Blank TDK Cassette</h2>
+      <h2>📻 Weekly Story: The 2-in-1 Recorder Ritual</h2>
       <p>
-        Before Spotify playlists and YouTube algorithms, music curation required patience, sharp reflexes, and a pencil. You sat next to the two-in-one tape deck with your index fingers poised over both the <strong>Play</strong> and <strong>Record</strong> buttons simultaneously, waiting for the radio jockey to stop talking so you could capture that one Bollywood track onto a 60-minute cassette.
+        In middle-class living rooms across India, the two-in-one stereo system sat atop a showcase shelf, covered by an embroidered lace runner so it wouldn't catch dust. 
       </p>
       <p>
-        And when the tape inevitably unspooled into a magnetic bird’s nest inside the player? You didn't throw it out. You carefully stuck the hexagonal end of an HB pencil into the sprocket and hand-cranked the ribbon back into place with surgeon-level focus.
+        Recording your favorite song off FM or Vividh Bharati was an olympic sport. You had to time pressing <strong>[Play]</strong> and <strong>[Record]</strong> together the millisecond the radio announcer went quiet, praying no family member called your name across the room mid-song. And when the ribbon got tangled? A hexagonal Natraj pencil was your only hope.
       </p>
     </section>
 
-    <!-- Interactive Nostalgia Corner -->
+    <!-- Interactive Quiz -->
     <section>
-      <h2>Nostalgia Quiz Corner</h2>
-      <div class="quiz-box">
-        <p><strong>Clue:</strong> It came in a red and white paper pack, cost roughly 50 paise to 1 rupee, made you feel like a cool Bollywood hero without touching real smoke, and dissolved into sweet sugary mint. What was it?</p>
-        <details>
-          <summary>Click here to reveal the answer</summary>
-          <p>👉 <strong>Phantom Sweet Cigarettes!</strong></p>
-        </details>
+      <h2>🕹️ Sunday Nostalgia Quiz</h2>
+      <div class="quiz-card">
+        <div class="quiz-question">
+          Which red-and-white packed treat let 90s kids pretend to be Bollywood movie stars without any actual smoke?
+        </div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">A) Poppins</button>
+          <button class="quiz-btn" onclick="checkAnswer(true, this)">B) Phantom Sweet Cigarettes</button>
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">C) Mango Mood</button>
+          <button class="quiz-btn" onclick="checkAnswer(false, this)">D) Big Babol</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
       </div>
     </section>
 
-    <!-- Letter to the 90s Kid -->
+    <!-- Letter From The Future -->
     <section>
-      <h2>A Letter to You, Kid</h2>
-      <div class="letter-box">
+      <h2>✉️ Inland Letter: From 2026 to You</h2>
+      <div class="letter-card">
+        <div class="postmark">India<br>Post</div>
+        <p><em>To the kid sitting crossed-legged on the floor waiting for Sunday 9:00 AM:</em></p>
         <p>
-          "Dear 10-year-old me sitting on the living room floor waiting for Sunday 9:00 AM Doordarshan:
+          "In the future, you won't need to wait 7 days for a 30-minute episode, nor will you have to adjust the TV antenna on the terrace when the screen turns to static snow. You'll carry every cartoon, song, and movie in your palm.
         </p>
         <p>
-          In the future, you will hold a pocket-sized glass rectangle that contains every song ever recorded and lets you talk to anyone across the world instantly. But here's a secret: you will often miss waiting an entire week just to watch one 30-minute episode of your favorite cartoon. Finish your homework before the power cut starts. It's going to be okay."
+          Yet, you will often find yourself missing the taste of water stored in the terracotta <em>matka</em>, the sound of the evening cricket whistle, and the sheer magic of hearing your best friend cycle up your street yelling your name. Enjoy this afternoon."
         </p>
       </div>
     </section>
 
     <footer>
-      <p>New issue drops every Sunday. Built with pure 90s affection.</p>
+      <p>Built with nostalgia • Updated every Sunday • Dedicated to the dial-up generation.</p>
     </footer>
   </div>
 
+  <script>
+    // --- Nostalgia Audio Synth (Web Audio API) ---
+    let audioCtx = null;
+    let isPlaying = false;
+    let melodyTimer = null;
+
+    // Classic pentatonic retro chime melody notes (in Hz)
+    const melody = [
+      { note: 523.25, dur: 300 }, // C5
+      { note: 587.33, dur: 300 }, // D5
+      { note: 659.25, dur: 300 }, // E5
+      { note: 783.99, dur: 450 }, // G5
+      { note: 659.25, dur: 250 }, // E5
+      { note: 783.99, dur: 600 }, // G5
+      { note: 880.00, dur: 700 }  // A5
+    ];
+
+    function toggleTune() {
+      const btn = document.getElementById('playBtn');
+      const leftReel = document.getElementById('leftReel');
+      const rightReel = document.getElementById('rightReel');
+
+      if (isPlaying) {
+        stopTune();
+        return;
+      }
+
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      isPlaying = true;
+      btn.innerText = "⏹ Stop Cassette";
+      leftReel.classList.add('spinning');
+      rightReel.classList.add('spinning');
+
+      let currentNote = 0;
+
+      function playNext() {
+        if (!isPlaying) return;
+        const item = melody[currentNote];
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle'; // Warm 90s console / keyboard tone
+        osc.frequency.setValueAtTime(item.note, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (item.dur / 1000));
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + (item.dur / 1000));
+
+        currentNote = (currentNote + 1) % melody.length;
+        melodyTimer = setTimeout(playNext, item.dur + 60);
+      }
+
+      playNext();
+    }
+
+    function stopTune() {
+      isPlaying = false;
+      clearTimeout(melodyTimer);
+      document.getElementById('playBtn').innerText = "▶ Play Nostalgia Synth";
+      document.getElementById('leftReel').classList.remove('spinning');
+      document.getElementById('rightReel').classList.remove('spinning');
+    }
+
+    // --- Interactive Quiz Logic ---
+    function checkAnswer(isCorrect, buttonEl) {
+      const feedback = document.getElementById('quizFeedback');
+      const allButtons = document.querySelectorAll('.quiz-btn');
+
+      allButtons.forEach(btn => {
+        btn.style.borderColor = "#d4c5b1";
+        btn.style.backgroundColor = "#ffffff";
+      });
+
+      if (isCorrect) {
+        buttonEl.style.backgroundColor = "#e8f5e9";
+        buttonEl.style.borderColor = "#4caf50";
+        feedback.style.color = "#2e7d32";
+        feedback.innerText = "✨ Spot on! The iconic Phantom sweet cigarette that tasted like pure sugar and wintergreen!";
+      } else {
+        buttonEl.style.backgroundColor = "#ffebee";
+        buttonEl.style.borderColor = "#f44336";
+        feedback.style.color = "#c62828";
+        feedback.innerText = "Not quite! Think of the sweet mint sticks that looked like real smokes...";
+      }
+    }
+  </script>
 </body>
 </html>
-
